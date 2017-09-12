@@ -1,0 +1,15 @@
+{
+  "name": "portfolio",
+  "scripts": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
