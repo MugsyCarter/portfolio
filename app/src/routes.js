@@ -9,19 +9,19 @@ export default function routes($stateProvider, $urlRouterProvider) {
         component: 'home' 
     });
 
-    $stateProvider.state({
-        name: 'test',
-        url: '/test',
-        data: { public: true },
-        component: 'test' 
-    });
+    // $stateProvider.state({
+    //     name: 'test',
+    //     url: '/test',
+    //     data: { public: true },
+    //     component: 'test' 
+    // });
 
-    $stateProvider.state({
-        name: 'about',
-        url: '/about',
-        data: { public: true },
-        component: 'about' 
-    });
+    // $stateProvider.state({
+    //     name: 'about',
+    //     url: '/about',
+    //     data: { public: true },
+    //     component: 'about' 
+    // });
 
     $urlRouterProvider.otherwise('/');
 }
