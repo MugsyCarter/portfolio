@@ -1,3 +1,47 @@
 <section>
-    <h1>Home Page Content Here</h1>
+    <div class="home-header">
+        <h1>Home Page Content Here</h1>
+    </div>
+
+   
+    <div class="website-gallery">
+        <div class="featured-website">
+            <h2>Featured Web App</h2>
+            <h2>{{$ctrl.featuredWebsite.title}}</h2>
+            <image src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}/>
+            <p>{{$ctrl.featuredWebsite.description}}</p>
+            <p>{{$ctrl.featuredWebsite.takeaway}}</p>
+            <p>{{$ctrl.featuredWebsite.tech}}</p>
+            <p>{{$ctrl.featuredWebsite.date}}</p>
+            <a>{{$ctrl.featuredWebsite.url}}</a>
+        </div>
+
+       
+        <div class="solo-projects">
+            <h2>Solo Projects</h2>
+            <div class="project" ng-repeat="project in $ctrl.soloProjects">
+                <h2>{{project.title}}</h2>
+                <image src={{project.imageURL}} title={{project.title}}/>
+                <p>{{project.description}}</p>
+                <p>{{project.takeaway}}</p>
+                <p>{{project.tech}}</p>
+                <p>{{project.date}}</p>
+                <a>{{project.url}}</a>
+            </div>
+        </div>
+
+        <div class="group-projects">
+            <h2>Group Projects</h2>
+            <div class="project" ng-repeat="project in $ctrl.groupProjects">
+                <h2>{{project.title}}</h2>
+                <image class="projectImage" src={{project.imageURL}} title={{project.title}}/>
+                <p>{{project.description}}</p>
+                <p>{{project.takeaway}}</p>
+                <p>{{project.tech}}</p>
+                <p>{{project.date}}</p>
+                <a>{{project.url}}</a>
+            </div>
+        <div>
+    <div>
+
 </section>
