@@ -8,7 +8,7 @@
         <div class="featured-website">
             <h2>Featured Web App</h2>
             <h2>{{$ctrl.featuredWebsite.title}}</h2>
-            <image src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}/>
+            <image class="featured-project-image" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>
             <p>{{$ctrl.featuredWebsite.description}}</p>
             <p>{{$ctrl.featuredWebsite.takeaway}}</p>
             <p>{{$ctrl.featuredWebsite.tech}}</p>
@@ -21,7 +21,7 @@
             <h2>Solo Projects</h2>
             <div class="project" ng-repeat="project in $ctrl.soloProjects">
                 <h2>{{project.title}}</h2>
-                <image src={{project.imageURL}} title={{project.title}}/>
+                <image class="project-image" src={{project.imageURL}} title={{project.title}}/>
                 <p>{{project.description}}</p>
                 <p>{{project.takeaway}}</p>
                 <p>{{project.tech}}</p>
@@ -34,7 +34,7 @@
             <h2>Group Projects</h2>
             <div class="project" ng-repeat="project in $ctrl.groupProjects">
                 <h2>{{project.title}}</h2>
-                <image class="projectImage" src={{project.imageURL}} title={{project.title}}/>
+                <image class="project-image" src={{project.imageURL}} title={{project.title}} />
                 <p>{{project.description}}</p>
                 <p>{{project.takeaway}}</p>
                 <p>{{project.tech}}</p>

@@ -45,57 +45,14 @@ td, th{
   font-size: 4vh;
 }
 
-//trait table stuff
-.trait-table{
-   width: 60%;
-   margin-left: 20%;
-   margin-right: 20%;
-   background-color: white;
-}
-.trait-table-letter{
-  background-color: white;
-    vertical-align: center;
-   display: inline-block;
-    min-height: 10vw;
-    min-width: 10vw;
-   font-size: 7vw;
-   color: $blue;
+//home page stuff
+//featured project
+
+.featured-project-image{
+  width: 80vw;
+  height: 40vw;
 }
 
-.I{
-  color: white;
-  background-color: $yellow;
-}
-
-.E{
-   color: white;
-   background-color: $blue;   
-}
-
-.N{
-  color: $blue;
-  background-color: pink;
-}
-
-.T{
-   color:$blue;
-   background-color: $green;
-}
-
-.F{
-  color: $blue;
-  background-color:$yellow;
-}
-
-.P{
-  color: pink;
-  background-color: $blue;
-}
-
-.J{
-  color: $yellow;
-  background-color: $blue;
-}
 
 //test page
 
