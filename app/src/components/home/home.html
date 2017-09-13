@@ -7,12 +7,12 @@
     <div class="website-gallery">
         <div class="featured-project">
             <h2>Featured Web App</h2>
-            <h2>{{$ctrl.featuredWebsite.title}}</h2>
+            <h2>Name: {{$ctrl.featuredWebsite.title}}</h2>
             <image class="featured-project-image" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>
-            <p>{{$ctrl.featuredWebsite.description}}</p>
-            <p>{{$ctrl.featuredWebsite.takeaway}}</p>
-            <p>{{$ctrl.featuredWebsite.tech}}</p>
-            <p>{{$ctrl.featuredWebsite.date}}</p>
+            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>
+            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>
+            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>
+            <p>Date: {{$ctrl.featuredWebsite.date}}</p>
             <a>{{$ctrl.featuredWebsite.url}}</a>
         </div>
 
@@ -20,12 +20,12 @@
         <div class="solo-projects">
             <h2>Solo Projects</h2>
             <div class="project" ng-repeat="project in $ctrl.soloProjects">
-                <h2>{{project.title}}</h2>
+                <h2>Name: {{project.title}}</h2>
                 <image class="project-image" src={{project.imageURL}} title={{project.title}}/>
-                <p>{{project.description}}</p>
-                <p>{{project.takeaway}}</p>
-                <p>{{project.tech}}</p>
-                <p>{{project.date}}</p>
+                <p>Description: {{project.description}}</p>
+                <p>Developer Notes: {{project.takeaway}}</p>
+                <p>Techonology Used: {{project.tech}}</p>
+                <p>Date: {{project.date}}</p>
                 <a>{{project.url}}</a>
             </div>
         </div>
@@ -33,12 +33,12 @@
         <div class="group-projects">
             <h2>Group Projects</h2>
             <div class="project" ng-repeat="project in $ctrl.groupProjects">
-                <h2>{{project.title}}</h2>
+                <h2>Name: {{project.title}}</h2>
                 <image class="project-image" src={{project.imageURL}} title={{project.title}} />
-                <p>{{project.description}}</p>
-                <p>{{project.takeaway}}</p>
-                <p>{{project.tech}}</p>
-                <p>{{project.date}}</p>
+                <p>Description: {{project.description}}</p>
+                <p>Developer Notes: {{project.takeaway}}</p>
+                <p>Techonology Used: {{project.tech}}</p>
+                <p>Date: {{project.date}}</p>
                 <a>{{project.url}}</a>
             </div>
         <div>
