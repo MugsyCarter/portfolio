@@ -47,9 +47,23 @@ td, th {
 .subtitle {
   font-size: 4vh; }
 
+.featured-project {
+  width: 90vw;
+  box-shadow: 1vw 0.1vw 1vw #888888;
+  margin: 5vw; }
+
 .featured-project-image {
-  width: 80vw;
+  width: 70vw;
   height: 40vw; }
+
+.project {
+  width: 30vw;
+  box-shadow: 1vw 0.1vw 1vw #888888;
+  margin: 2vw; }
+
+.project-image {
+  width: 20vw;
+  height: 12vw; }
 
 .question-text {
   font-size: 8vh; }
