@@ -11,6 +11,7 @@ a{
   text-decoration: none;
   padding: 1vw;
   &:hover{
+    cursor: pointer;
     box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 }
@@ -66,6 +67,7 @@ td, th{
   width: 30vw;
   box-shadow: 1vw 0.1vw 1vw #888888;
   margin: 2vw;
+  display: inline-block;
 }
 
 .project-image{
@@ -82,40 +84,7 @@ td, th{
   font-size: 4vh;
 }
 
-//results 
-.strength{
-  color: $black;
-}
 
-.strong{
-  color: $blue;
-  font-size: 7vh;
-}
-
-.moderate{
-  color: $green;
-  font-size: 5vh;
-}
-
-.weak{
-     color: pink; 
-     font-size: 3vh;
-}
-
-.results-descriptions{
-  width: 90vw;
-  padding: 0 5vw;
-}
-
-.results-description-row{
-  text-align: left;
-
-}
-
-.result-description{
-  text-align: left;
-  margin-left: 5vw;
-}
 //footer 
 
 //about page stuff

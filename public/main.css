@@ -59,7 +59,8 @@ td, th {
 .project {
   width: 30vw;
   box-shadow: 1vw 0.1vw 1vw #888888;
-  margin: 2vw; }
+  margin: 2vw;
+  display: inline-block; }
 
 .project-image {
   width: 20vw;
@@ -70,32 +71,6 @@ td, th {
 
 #answer-button {
   font-size: 4vh; }
-
-.strength {
-  color: #0a0908; }
-
-.strong {
-  color: #012a36;
-  font-size: 7vh; }
-
-.moderate {
-  color: #8aea92;
-  font-size: 5vh; }
-
-.weak {
-  color: pink;
-  font-size: 3vh; }
-
-.results-descriptions {
-  width: 90vw;
-  padding: 0 5vw; }
-
-.results-description-row {
-  text-align: left; }
-
-.result-description {
-  text-align: left;
-  margin-left: 5vw; }
 
 .about-title {
   font-size: 10vh; }

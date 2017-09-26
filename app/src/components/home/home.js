@@ -41,6 +41,30 @@ function controller() {
 
     this.featuredWebsite = this.soloProjects[0];
 
-    this.groupProjects = [];
+    this.groupProjects = [ 
+        {
+            title: 'Imbibe-or',
+            url: 'http://imbibe-or.herokuapp.com',
+            imageURL: './images/imbibeor.png',
+            description: 'A message board site focused on alcohol tourism in the state of oregon, where users can chat about different types of drinks in different regions around the state.',
+            takeaway: 'This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the backend portion of the program.  Our focus was to save user accounts, preferences, and contibutions in our Mongo database.',
+            date: 'November 2017',
+            tech: 'mongoDB, node.js, express, HTML, CSS'
+        },
+        {
+            title: 'Transplantr',
+            url: 'http://transplantr.herokuapp.com',
+            imageURL: './images/transplantr.png',
+            description: 'A site that lets users compare costs of living and housing costs for different cities.',
+            takeaway: 'This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the frontend portion of the program.  Our focus was to make the site look great on mobile devices and pulll data from both the US census and Zillow APIs.',
+            date: 'October 2017',
+            tech: 'Jquery, handlebars, HTML, CSS'
+        }
+
+    ];
+
+
+
+
 
 };
