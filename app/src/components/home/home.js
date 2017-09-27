@@ -26,7 +26,17 @@ function controller() {
         }
     };
 
-    this.soloProjects = [
+    this.showMore = (project)=>{
+        for (let i =0; i < this.projects.length; i++){
+            if (this.projects[i].title === project.title){
+                this.projects[i].showMore = true;
+                return;
+            }
+        }
+    };
+
+
+    this.projects = [
         {
             title: 'Carter Hearts',
             url: 'https://carterhearts.com',
@@ -35,7 +45,9 @@ function controller() {
             takeaway: 'I spent a lot of time continually tweaking the AI to make it smarter.  Eventually I got it to place where it could win games and even shoot the moon.  I even ended up adding "easy" AI players as a result of getting feedback from people that it was too difficult.  Give it a try!',
             date: 'March 2017',
             tech: 'MEAN Stack',
-            showMore: false
+            showMore: false,
+            type: 'solo',
+            index: 0
         },
         {
             title: 'Level Up Science',
@@ -45,7 +57,9 @@ function controller() {
             takeaway: 'I purposely made this project huge, on the off chance that I ever wanted to work on it full time and roll it out as an eventually money-making venture.  The coolest feature about this site is that if you create a user account the site will track your progress for each discipline and each unit as you "level up" your skills. I\'m particularly pround of the chemistry section that uses the periodic table to dynamically generate questions and answers each time you take a quiz.',
             date: 'June 2017',
             tech: 'MEAN Stack, Bootstrap',
-            showMore: false
+            showMore: false,
+            type: 'solo',
+            index: 1
         },
         {
             title: 'MBTI Personality Quiz',
@@ -55,7 +69,9 @@ function controller() {
             takeaway: 'Although I finished this project in a day, I feel like it works fairly accurately, and I particularly like the way the subtle stlying of the site turned out.',
             date: 'September 2017',
             tech: 'MEAN Stack',
-            showMore: false
+            showMore: false,
+            type: 'solo',
+            index: 2
         },
         {
             title: 'Play Magic the Gathering',
@@ -65,13 +81,11 @@ function controller() {
             takeaway: 'This web app is a work in progress. Currently I\'m working on the gameplay and the AI.',
             date: 'ongoing',
             tech: 'MEAN Stack',
-            showMore: false
-        }
-    ];
+            showMore: false,
+            type: 'solo',
+            index: 3
+        },
 
-    this.featuredWebsite = this.soloProjects[0];
-
-    this.groupProjects = [ 
         {
             title: 'Imbibe-or',
             url: 'http://imbibe-or.herokuapp.com',
@@ -80,7 +94,9 @@ function controller() {
             takeaway: 'This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the backend portion of the program.  Our focus was to save user accounts, preferences, and contibutions in our Mongo database.',
             date: 'November 2017',
             tech: 'mongoDB, node.js, express, HTML, CSS',
-            showMore: false
+            showMore: false,
+            type: 'group',
+            index: 4
         },
         {
             title: 'Transplantr',
@@ -90,11 +106,13 @@ function controller() {
             takeaway: 'This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the frontend portion of the program.  Our focus was to make the site look great on mobile devices and pulll data from both the US census and Zillow APIs.',
             date: 'October 2017',
             tech: 'Jquery, handlebars, HTML, CSS',
-            showMore: false
+            showMore: false,
+            type: 'group',
+            index: 4
         }
 
     ];
 
-
+    this.featuredWebsite = this.projects[0];
 
 };

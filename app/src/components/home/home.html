@@ -18,7 +18,7 @@
        
         <div class="solo-projects">
             <h2>Solo Projects</h2>
-            <div class="project" ng-repeat="project in $ctrl.soloProjects">
+            <div class="project" ng-repeat="project in $ctrl.projects" ng-if="project.type==='solo'">
                 <h2>{{project.title}}</h2>
                 <image class="project-image" src={{project.imageURL}} title={{project.title}}/>
                 <button ng-if="project.showMore===false"ng-click="$ctrl.showMore(project)">show more</button>
@@ -35,7 +35,7 @@
 
         <div class="group-projects">
             <h2>Group Projects</h2>
-            <div class="project" ng-repeat="project in $ctrl.groupProjects">
+            <div class="project" ng-repeat="project in $ctrl.projects" ng-if="project.type==='group'">
                 <h2>{{project.title}}</h2>
                 <image class="project-image" src={{project.imageURL}} title={{project.title}} />
                 <button ng-if="project.showMore===false"ng-click="$ctrl.showMore(project)">show more</button>
