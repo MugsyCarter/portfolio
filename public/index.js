@@ -34642,17 +34642,18 @@
 	
 	
 	function controller() {
+	    var _this = this;
 	
 	    this.showMore = function (project) {
-	        for (var i = 0; i < soloProjects.length; i++) {
-	            if (soloProjects[i].title === project.title) {
-	                soloProjects[i].showMore = true;
+	        for (var i = 0; i < _this.soloProjects.length; i++) {
+	            if (_this.soloProjects[i].title === project.title) {
+	                _this.soloProjects[i].showMore = true;
 	                return;
 	            }
 	        }
-	        for (var _i = 0; _i < groupProjects.length; _i++) {
-	            if (groupProjects[_i].title === project.title) {
-	                groupProjects[_i].showMore = true;
+	        for (var _i = 0; _i < _this.groupProjects.length; _i++) {
+	            if (_this.groupProjects[_i].title === project.title) {
+	                _this.groupProjects[_i].showMore = true;
 	                return;
 	            }
 	        }

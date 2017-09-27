@@ -12,15 +12,15 @@ function controller() {
 
 
     this.showMore = (project)=>{
-        for (let i =0; i < soloProjects.length; i++){
-            if (soloProjects[i].title === project.title){
-                soloProjects[i].showMore = true;
+        for (let i =0; i < this.soloProjects.length; i++){
+            if (this.soloProjects[i].title === project.title){
+                this.soloProjects[i].showMore = true;
                 return;
             }
         }
-        for (let i =0; i < groupProjects.length; i++){
-            if (groupProjects[i].title === project.title){
-                groupProjects[i].showMore = true;
+        for (let i =0; i < this.groupProjects.length; i++){
+            if (this.groupProjects[i].title === project.title){
+                this.groupProjects[i].showMore = true;
                 return;
             }
         }
