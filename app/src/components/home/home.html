@@ -21,10 +21,14 @@
             <div class="project" ng-repeat="project in $ctrl.soloProjects">
                 <h2>{{project.title}}</h2>
                 <image class="project-image" src={{project.imageURL}} title={{project.title}}/>
-                <p>Description: {{project.description}}</p>
-                <p>Developer Notes: {{project.takeaway}}</p>
-                <p>Techonology Used: {{project.tech}}</p>
-                <p>Date: {{project.date}}</p>
+                <button ng-if="project.showMore===false"ng-click="$ctrl.showMore(project)">show more</button>
+                <button ng-if="project.showMore===true" ng-click="$ctrl.showLess(project)">show less</button>
+                <div ng-if="project.showMore===true">
+                    <p>Description: {{project.description}}</p>
+                    <p>Developer Notes: {{project.takeaway}}</p>
+                    <p>Techonology Used: {{project.tech}}</p>
+                    <p>Date: {{project.date}}</p>
+                </div>
                 <a>{{project.url}}</a>
             </div>
         </div>
@@ -34,14 +38,14 @@
             <div class="project" ng-repeat="project in $ctrl.groupProjects">
                 <h2>{{project.title}}</h2>
                 <image class="project-image" src={{project.imageURL}} title={{project.title}} />
-                <button ng-if="ng-click="project.showMore===false" $ctrl.showMore(project)">show more</button>
-                <button ng-if="ng-click="project.showLess===false" $ctrl.showLess(project)">show less</button>
-                <section ng-if="project.showMore">
+                <button ng-if="project.showMore===false"ng-click="$ctrl.showMore(project)">show more</button>
+                <button ng-if="project.showMore===true" ng-click="$ctrl.showLess(project)">show less</button>
+                <div ng-if="project.showMore===true">
                     <p>Description: {{project.description}}</p>
                     <p>Developer Notes: {{project.takeaway}}</p>
                     <p>Techonology Used: {{project.tech}}</p>
                     <p>Date: {{project.date}}</p>
-                </section>
+                </div>
                 <a>{{project.url}}</a>
             </div>
         <div>
