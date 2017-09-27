@@ -71,6 +71,15 @@ td, th{
   display: inline-block;
 }
 
+.clickedProject{
+  width: 28vw;
+  box-shadow: 1vw 0.1vw 1vw #888888;
+  margin: 2vw;
+  display: inline-block;
+  background-color: pink;
+}
+
+
 .project-image{
   width: 20vw;
   height: 12vw;

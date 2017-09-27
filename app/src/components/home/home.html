@@ -29,13 +29,15 @@
                     <p>Techonology Used: {{project.tech}}</p>
                     <p>Date: {{project.date}}</p>
                 </div>
+                <br>
                 <a>{{project.url}}</a>
             </div>
         </div>
 
         <div class="group-projects">
             <h2>Group Projects</h2>
-            <div class="project" ng-repeat="project in $ctrl.projects" ng-if="project.type==='group'">
+           
+            <div class="project" ng-class= '{"clickedProject":project.showMore===true}' clicked-project ng-repeat="project in $ctrl.projects" ng-if="project.type==='group'">
                 <h2>{{project.title}}</h2>
                 <image class="project-image" src={{project.imageURL}} title={{project.title}} />
                 <button ng-if="project.showMore===false"ng-click="$ctrl.showMore(project)">show more</button>
@@ -46,6 +48,7 @@
                     <p>Techonology Used: {{project.tech}}</p>
                     <p>Date: {{project.date}}</p>
                 </div>
+                <br>
                 <a>{{project.url}}</a>
             </div>
         <div>

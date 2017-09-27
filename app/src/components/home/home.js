@@ -12,29 +12,12 @@ function controller() {
 
 
     this.showMore = (project)=>{
-        for (let i =0; i < this.soloProjects.length; i++){
-            if (this.soloProjects[i].title === project.title){
-                this.soloProjects[i].showMore = true;
-                return;
-            }
-        }
-        for (let i =0; i < this.groupProjects.length; i++){
-            if (this.groupProjects[i].title === project.title){
-                this.groupProjects[i].showMore = true;
-                return;
-            }
-        }
+        return this.projects[project.index].showMore = true;
     };
 
-    this.showMore = (project)=>{
-        for (let i =0; i < this.projects.length; i++){
-            if (this.projects[i].title === project.title){
-                this.projects[i].showMore = true;
-                return;
-            }
-        }
+    this.showLess = (project)=>{
+        return this.projects[project.index].showMore = false;
     };
-
 
     this.projects = [
         {

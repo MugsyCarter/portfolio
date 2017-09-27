@@ -34645,27 +34645,11 @@
 	    var _this = this;
 	
 	    this.showMore = function (project) {
-	        for (var i = 0; i < _this.soloProjects.length; i++) {
-	            if (_this.soloProjects[i].title === project.title) {
-	                _this.soloProjects[i].showMore = true;
-	                return;
-	            }
-	        }
-	        for (var _i = 0; _i < _this.groupProjects.length; _i++) {
-	            if (_this.groupProjects[_i].title === project.title) {
-	                _this.groupProjects[_i].showMore = true;
-	                return;
-	            }
-	        }
+	        return _this.projects[project.index].showMore = true;
 	    };
 	
-	    this.showMore = function (project) {
-	        for (var i = 0; i < _this.projects.length; i++) {
-	            if (_this.projects[i].title === project.title) {
-	                _this.projects[i].showMore = true;
-	                return;
-	            }
-	        }
+	    this.showLess = function (project) {
+	        return _this.projects[project.index].showMore = false;
 	    };
 	
 	    this.projects = [{
@@ -34743,7 +34727,7 @@
 /* 15 */
 /***/ (function(module, exports) {
 
-	module.exports = "<section>\n    <div class=\"home-header\">\n        <h1>Home Page Content Here</h1>\n    </div>\n\n   \n    <div class=\"website-gallery\">\n        <div class=\"featured-project\">\n            <h2>Featured Web App: {{$ctrl.featuredWebsite.title}}</h2>\n            <image class=\"featured-project-image\" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>\n            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>\n            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>\n            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>\n            <p>Date: {{$ctrl.featuredWebsite.date}}</p>\n            <a>{{$ctrl.featuredWebsite.url}}</a>\n        </div>\n\n       \n        <div class=\"solo-projects\">\n            <h2>Solo Projects</h2>\n            <div class=\"project\" ng-repeat=\"project in $ctrl.projects\" ng-if=\"project.type==='solo'\">\n                <h2>{{project.title}}</h2>\n                <image class=\"project-image\" src={{project.imageURL}} title={{project.title}}/>\n                <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button>\n                <div ng-if=\"project.showMore===true\">\n                    <p>Description: {{project.description}}</p>\n                    <p>Developer Notes: {{project.takeaway}}</p>\n                    <p>Techonology Used: {{project.tech}}</p>\n                    <p>Date: {{project.date}}</p>\n                </div>\n                <a>{{project.url}}</a>\n            </div>\n        </div>\n\n        <div class=\"group-projects\">\n            <h2>Group Projects</h2>\n            <div class=\"project\" ng-repeat=\"project in $ctrl.projects\" ng-if=\"project.type==='group'\">\n                <h2>{{project.title}}</h2>\n                <image class=\"project-image\" src={{project.imageURL}} title={{project.title}} />\n                <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button>\n                <div ng-if=\"project.showMore===true\">\n                    <p>Description: {{project.description}}</p>\n                    <p>Developer Notes: {{project.takeaway}}</p>\n                    <p>Techonology Used: {{project.tech}}</p>\n                    <p>Date: {{project.date}}</p>\n                </div>\n                <a>{{project.url}}</a>\n            </div>\n        <div>\n    <div>\n\n</section>";
+	module.exports = "<section>\n    <div class=\"home-header\">\n        <h1>Home Page Content Here</h1>\n    </div>\n\n   \n    <div class=\"website-gallery\">\n        <div class=\"featured-project\">\n            <h2>Featured Web App: {{$ctrl.featuredWebsite.title}}</h2>\n            <image class=\"featured-project-image\" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>\n            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>\n            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>\n            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>\n            <p>Date: {{$ctrl.featuredWebsite.date}}</p>\n            <a>{{$ctrl.featuredWebsite.url}}</a>\n        </div>\n\n       \n        <div class=\"solo-projects\">\n            <h2>Solo Projects</h2>\n            <div class=\"project\" ng-repeat=\"project in $ctrl.projects\" ng-if=\"project.type==='solo'\">\n                <h2>{{project.title}}</h2>\n                <image class=\"project-image\" src={{project.imageURL}} title={{project.title}}/>\n                <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button>\n                <div ng-if=\"project.showMore===true\">\n                    <p>Description: {{project.description}}</p>\n                    <p>Developer Notes: {{project.takeaway}}</p>\n                    <p>Techonology Used: {{project.tech}}</p>\n                    <p>Date: {{project.date}}</p>\n                </div>\n                <br>\n                <a>{{project.url}}</a>\n            </div>\n        </div>\n\n        <div class=\"group-projects\">\n            <h2>Group Projects</h2>\n           \n            <div class=\"project\" ng-class= '{\"clickedProject\":project.showMore===true}' clicked-project ng-repeat=\"project in $ctrl.projects\" ng-if=\"project.type==='group'\">\n                <h2>{{project.title}}</h2>\n                <image class=\"project-image\" src={{project.imageURL}} title={{project.title}} />\n                <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button>\n                <div ng-if=\"project.showMore===true\">\n                    <p>Description: {{project.description}}</p>\n                    <p>Developer Notes: {{project.takeaway}}</p>\n                    <p>Techonology Used: {{project.tech}}</p>\n                    <p>Date: {{project.date}}</p>\n                </div>\n                <br>\n                <a>{{project.url}}</a>\n            </div>\n        <div>\n    <div>\n\n</section>";
 
 /***/ }),
 /* 16 */
