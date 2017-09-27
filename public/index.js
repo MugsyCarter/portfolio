@@ -34667,6 +34667,14 @@
 	        takeaway: 'Although I finished this project in a day, I feel like it works fairly accurately, and I particularly like the way the subtle stlying of the site turned out.',
 	        date: 'September 2017',
 	        tech: 'MEAN Stack'
+	    }, {
+	        title: 'Play Magic the Gathering',
+	        url: 'https://play-mtg.herokuapp.com',
+	        imageURL: './images/magic.png',
+	        description: 'A web app that lets you play Magic the Gathering, the popular tabletop card game with decks of your own construction.',
+	        takeaway: 'This web app is a work in progress. Currently I\'m working on the gameplay and the AI.',
+	        date: 'ongoing',
+	        tech: 'MEAN Stack'
 	    }];
 	
 	    this.featuredWebsite = this.soloProjects[0];

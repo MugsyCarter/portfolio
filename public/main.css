@@ -19,14 +19,15 @@ button:hover {
 
 * {
   font-family: 'Dosis', sans-serif;
-  text-align: center; }
+  text-align: center;
+  color: #012a36; }
 
 a {
   text-decoration: none;
   padding: 1vw; }
   a:hover {
     cursor: pointer;
-    box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+    color: #012a36; }
 
 td, th {
   padding: none;
@@ -49,13 +50,13 @@ td, th {
   font-size: 4vh; }
 
 .featured-project {
-  width: 90vw;
+  width: 80vw;
   box-shadow: 1vw 0.1vw 1vw #888888;
   margin: 5vw; }
 
 .featured-project-image {
-  width: 70vw;
-  height: 40vw; }
+  width: 60vw;
+  height: 30vw; }
 
 .project {
   width: 30vw;
