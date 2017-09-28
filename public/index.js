@@ -34644,13 +34644,20 @@
 	function controller() {
 	    var _this = this;
 	
-	    this.showMore = function (project) {
-	        return _this.projects[project.index].showMore = true;
+	    this.toggleProject = function (project) {
+	        for (var i = 0; i < _this.projects.length; i++) {
+	            _this.projects[i].showMore = false;
+	        }
+	        if (project.showMore === true) {
+	            return _this.projects[project.index].showMore = false;
+	        } else {
+	            return _this.projects[project.index].showMore = true;
+	        }
 	    };
 	
-	    this.showLess = function (project) {
-	        return _this.projects[project.index].showMore = false;
-	    };
+	    // this.showLess = (project)=>{
+	    //     return this.projects[project.index].showMore = false;
+	    // };
 	
 	    this.projects = [{
 	        title: 'Carter Hearts',
@@ -34668,7 +34675,7 @@
 	        url: 'https://levelupscience.com',
 	        imageURL: './images/levelUpScience.png',
 	        description: 'A platform I buit to teach people, particularly students science.  Right now, only a couple of the chemistry units are fleshed out.',
-	        takeaway: 'I purposely made this project huge, on the off chance that I ever wanted to work on it full time and roll it out as an eventually money-making venture.  The coolest feature about this site is that if you create a user account the site will track your progress for each discipline and each unit as you "level up" your skills. I\'m particularly pround of the chemistry section that uses the periodic table to dynamically generate questions and answers each time you take a quiz.',
+	        takeaway: 'I purposely made this project huge, on the off chance that I ever wanted to work on it full time and roll it out as an eventually money-making venture.  The coolest feature about this site is that if you create a user account the site will track your progress for each discipline and each unit as you "level up" your skills. I\'m particularly proud of the chemistry section that uses the periodic table to dynamically generate new unique questions and answers each time you take a quiz.',
 	        date: 'June 2017',
 	        tech: 'MEAN Stack, Bootstrap',
 	        showMore: false,
@@ -34727,7 +34734,7 @@
 /* 15 */
 /***/ (function(module, exports) {
 
-	module.exports = "<section>\n    <div class=\"home-header\">\n        <h1>Home Page Content Here</h1>\n    </div>\n\n   \n    <div class=\"website-gallery\">\n        <div class=\"featured-project\">\n            <h2>Featured Web App: {{$ctrl.featuredWebsite.title}}</h2>\n            <image class=\"featured-project-image\" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>\n            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>\n            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>\n            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>\n            <p>Date: {{$ctrl.featuredWebsite.date}}</p>\n            <a>{{$ctrl.featuredWebsite.url}}</a>\n        </div>\n\n       \n        <div class=\"solo-projects\">\n            <h2>Solo Projects</h2>\n            <div class=\"project\" ng-repeat=\"project in $ctrl.projects\" ng-if=\"project.type==='solo'\">\n                <h2>{{project.title}}</h2>\n                <image class=\"project-image\" src={{project.imageURL}} title={{project.title}}/>\n                <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button>\n                <div ng-if=\"project.showMore===true\">\n                    <p>Description: {{project.description}}</p>\n                    <p>Developer Notes: {{project.takeaway}}</p>\n                    <p>Techonology Used: {{project.tech}}</p>\n                    <p>Date: {{project.date}}</p>\n                </div>\n                <br>\n                <a>{{project.url}}</a>\n            </div>\n        </div>\n\n        <div class=\"group-projects\">\n            <h2>Group Projects</h2>\n           \n            <div class=\"project\" ng-class= '{\"clickedProject\":project.showMore===true}' clicked-project ng-repeat=\"project in $ctrl.projects\" ng-if=\"project.type==='group'\">\n                <h2>{{project.title}}</h2>\n                <image class=\"project-image\" src={{project.imageURL}} title={{project.title}} />\n                <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button>\n                <div ng-if=\"project.showMore===true\">\n                    <p>Description: {{project.description}}</p>\n                    <p>Developer Notes: {{project.takeaway}}</p>\n                    <p>Techonology Used: {{project.tech}}</p>\n                    <p>Date: {{project.date}}</p>\n                </div>\n                <br>\n                <a>{{project.url}}</a>\n            </div>\n        <div>\n    <div>\n\n</section>";
+	module.exports = "<section>\n    <div class=\"home-header\">\n        <h1>Home Page Content Here</h1>\n    </div>\n\n   \n    <div class=\"website-gallery\">\n        <div class=\"featured-project\">\n            <h2>Featured Web App: {{$ctrl.featuredWebsite.title}}</h2>\n            <image class=\"featured-project-image\" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>\n            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>\n            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>\n            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>\n            <p>Date: {{$ctrl.featuredWebsite.date}}</p>\n            <a>{{$ctrl.featuredWebsite.url}}</a>\n        </div>\n\n       \n         <div class=\"solo-projects\"> \n            <h2>Solo Projects</h2>\n            <ul>\n                <li class=\"project\"  ng-repeat=\"project in $ctrl.projects\" ng-if=\"project.type==='solo'\" ng-click=\"$ctrl.toggleProject(project)\" ng-class='{\"clickedProject\":project.showMore===true}'>\n                    <div class=\"project-title\">\n                        <h2>{{project.title}}</h2>\n                    </div>\n                    <div class=\"project-content\" ng-if=\"project.showMore===true\">\n                         <image class=\"project-image\" title={{project.title}} src={{project.imageURL}}  />\n                        <!-- <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                        <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button> \n                        <div ng-if=\"project.showMore===true\"> -->\n                            <h2>Description: {{project.description}}</h2>\n                            <p>Developer Notes: {{project.takeaway}}</p>\n                            <p>Techonology Used: {{project.tech}}</p>\n                            <p>Date: {{project.date}}</p>\n                            <br>\n                            <a>{{project.url}}</a> \n                        <!-- </div> -->   \n                    </div>\n                </li>\n            </ul>\n         </div> \n\n        <div class=\"group-projects\">\n            <h2>Group Projects</h2>\n           \n            <div class=\"project\" ng-class= '{\"clickedProject\":project.showMore===true}' clicked-project ng-repeat=\"project in $ctrl.projects\" ng-if=\"project.type==='group'\">\n                <h2>{{project.title}}</h2>\n                <image class=\"project-image\" src={{project.imageURL}} title={{project.title}} />\n                <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button>\n                <div ng-if=\"project.showMore===true\">\n                    <p>Description: {{project.description}}</p>\n                    <p>Developer Notes: {{project.takeaway}}</p>\n                    <p>Techonology Used: {{project.tech}}</p>\n                    <p>Date: {{project.date}}</p>\n                </div>\n                <br>\n                <a>{{project.url}}</a>\n            </div>\n        <div>\n    <div>\n\n</section>";
 
 /***/ }),
 /* 16 */

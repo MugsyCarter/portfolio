@@ -11,13 +11,21 @@ function controller() {
 
 
 
-    this.showMore = (project)=>{
-        return this.projects[project.index].showMore = true;
+    this.toggleProject = (project)=>{
+        for (let i =0; i < this.projects.length; i++){
+            this.projects[i].showMore=false;
+        }
+        if (project.showMore === true){
+            return this.projects[project.index].showMore = false;
+        }
+        else{
+            return this.projects[project.index].showMore = true;
+        }
     };
 
-    this.showLess = (project)=>{
-        return this.projects[project.index].showMore = false;
-    };
+    // this.showLess = (project)=>{
+    //     return this.projects[project.index].showMore = false;
+    // };
 
     this.projects = [
         {
@@ -37,7 +45,7 @@ function controller() {
             url: 'https://levelupscience.com',
             imageURL: './images/levelUpScience.png',
             description: 'A platform I buit to teach people, particularly students science.  Right now, only a couple of the chemistry units are fleshed out.',
-            takeaway: 'I purposely made this project huge, on the off chance that I ever wanted to work on it full time and roll it out as an eventually money-making venture.  The coolest feature about this site is that if you create a user account the site will track your progress for each discipline and each unit as you "level up" your skills. I\'m particularly pround of the chemistry section that uses the periodic table to dynamically generate questions and answers each time you take a quiz.',
+            takeaway: 'I purposely made this project huge, on the off chance that I ever wanted to work on it full time and roll it out as an eventually money-making venture.  The coolest feature about this site is that if you create a user account the site will track your progress for each discipline and each unit as you "level up" your skills. I\'m particularly proud of the chemistry section that uses the periodic table to dynamically generate new unique questions and answers each time you take a quiz.',
             date: 'June 2017',
             tech: 'MEAN Stack, Bootstrap',
             showMore: false,

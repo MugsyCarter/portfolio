@@ -20,7 +20,8 @@ button:hover {
 * {
   font-family: 'Dosis', sans-serif;
   text-align: center;
-  color: #012a36; }
+  color: #012a36;
+  box-sizing: border-box; }
 
 a {
   text-decoration: none;
@@ -58,22 +59,58 @@ td, th {
   width: 60vw;
   height: 30vw; }
 
-.project {
-  width: 28vw;
-  box-shadow: 1vw 0.1vw 1vw #888888;
-  margin: 2vw;
-  display: inline-block; }
+ul {
+  display: flex;
+  min-height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style-type: none; }
 
-.clickedProject {
-  width: 28vw;
-  box-shadow: 1vw 0.1vw 1vw #888888;
-  margin: 2vw;
-  display: inline-block;
-  background-color: pink; }
-
-.project-image {
-  width: 20vw;
-  height: 12vw; }
+li {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  padding: 20px;
+  background: pink;
+  cursor: pointer;
+  transition: all .5s ease; }
+  li:hover {
+    background: #ffb1be; }
+  li.clickedProject {
+    flex: 5;
+    background: pink;
+    cursor: default; }
+    li.clickedProject h2 {
+      color: #012a36; }
+    li.clickedProject .project-content {
+      flex: 4;
+      flex-direction: column;
+      opacity: 1;
+      transform: scaleX(1);
+      color: #012a36; }
+  li .project-title {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: pink; }
+    li .project-title h2 {
+      margin: 0;
+      transform: rotate(-90deg);
+      white-space: nowrap; }
+  li .project-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: all .25s .1s ease-out; }
 
 .question-text {
   font-size: 8vh; }

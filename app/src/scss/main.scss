@@ -2,9 +2,10 @@
 @import 'buttons';
 
 * {
-font-family: 'Dosis', sans-serif;
-text-align: center; 
-color: $blue;
+  font-family: 'Dosis', sans-serif;
+  text-align: center; 
+  color: $blue;
+  box-sizing: border-box;
 }
 
 
@@ -64,26 +65,96 @@ td, th{
 
 //project galleries
 
-.project{
-  width: 28vw;
-  box-shadow: 1vw 0.1vw 1vw #888888;
-  margin: 2vw;
-  display: inline-block;
+// .project{
+//   width: 28vw;
+//   box-shadow: 1vw 0.1vw 1vw #888888;
+//   margin: 2vw;
+//   display: inline-block;
+//   z-index: -1;
+//   position: inherit; 
+// }
+
+// .clickedProject{
+//   width: 50vw;
+//   box-shadow: 1vw 0.1vw 1vw #888888;
+//   margin: 2vw;
+//   display: inline-block;
+//   z-index: 1;
+//   position: absolute;
+//   opacity: 1;
+//   fill-opacity: 1;
+// }
+
+
+// .project-image{
+//   width: 20vw;
+//   height: 12vw;
+// }
+
+ul {
+  display: flex;
+  min-height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style-type: none;
 }
 
-.clickedProject{
-  width: 28vw;
-  box-shadow: 1vw 0.1vw 1vw #888888;
-  margin: 2vw;
-  display: inline-block;
-  background-color: pink;
+li {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  padding: 20px;
+  background: pink;
+  cursor: pointer;
+  transition: all .5s ease;
+  &:hover {
+    background: darken(pink, 3);
+  }
+  &.clickedProject {
+    flex: 5;
+    background: pink;
+    cursor: default;
+    h2 {
+      color: $blue;
+    }
+    .project-content {
+      flex: 4;
+      flex-direction: column;
+      opacity: 1;
+      transform: scaleX(1);
+      color: $blue;
+    }
+  }
+  
+  .project-title {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: pink;
+    h2 {
+      margin: 0;
+      transform: rotate(-90deg);
+      white-space: nowrap;
+    }
+  }
+  
+  .project-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transition: all .25s .1s ease-out;
+  }
 }
 
-
-.project-image{
-  width: 20vw;
-  height: 12vw;
-}
 
 //test page
 
