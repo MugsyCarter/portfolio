@@ -34660,81 +34660,83 @@
 	    // };
 	
 	    this.projects = [{
-	        title: 'Carter Hearts',
-	        url: 'https://carterhearts.com',
-	        imageURL: './images/carterHearts.png',
-	        description: 'A web-based single-player version of the card game hearts.',
-	        takeaway: 'I spent a lot of time continually tweaking the AI to make it smarter.  Eventually I got it to place where it could win games and even shoot the moon.  I even ended up adding "easy" AI players as a result of getting feedback from people that it was too difficult.  Give it a try!',
-	        date: 'March 2017',
-	        tech: 'MEAN Stack',
-	        showMore: false,
-	        type: 'solo',
-	        index: 0
-	    }, {
-	        title: 'Level Up Science',
-	        url: 'https://levelupscience.com',
-	        imageURL: './images/levelUpScience.png',
-	        description: 'A platform I buit to teach people, particularly students science.  Right now, only a couple of the chemistry units are fleshed out.',
-	        takeaway: 'I purposely made this project huge, on the off chance that I ever wanted to work on it full time and roll it out as an eventually money-making venture.  The coolest feature about this site is that if you create a user account the site will track your progress for each discipline and each unit as you "level up" your skills. I\'m particularly proud of the chemistry section that uses the periodic table to dynamically generate new unique questions and answers each time you take a quiz.',
-	        date: 'June 2017',
-	        tech: 'MEAN Stack, Bootstrap',
-	        showMore: false,
-	        type: 'solo',
-	        index: 1
-	    }, {
-	        title: 'MBTI Personality Quiz',
-	        url: 'https://mbti-personality-test.herokuapp.com',
-	        imageURL: './images/mbti.png',
-	        description: 'A quick Meyers-Briggs personality quiz that will tell the user their personality type.',
-	        takeaway: 'Although I finished this project in a day, I feel like it works fairly accurately, and I particularly like the way the subtle stlying of the site turned out.',
-	        date: 'September 2017',
-	        tech: 'MEAN Stack',
-	        showMore: false,
-	        type: 'solo',
-	        index: 2
-	    }, {
-	        title: 'Play Magic the Gathering',
-	        url: 'https://play-mtg.herokuapp.com',
-	        imageURL: './images/magic.png',
-	        description: 'A web app that lets you play Magic the Gathering, the popular tabletop card game with decks of your own construction.',
-	        takeaway: 'This web app is a work in progress. Currently I\'m working on the gameplay and the AI.',
-	        date: 'ongoing',
-	        tech: 'MEAN Stack',
-	        showMore: false,
-	        type: 'solo',
-	        index: 3
-	    }, {
 	        title: 'Imbibe-or',
 	        url: 'http://imbibe-or.herokuapp.com',
 	        imageURL: './images/imbibeor.png',
-	        description: 'A message board site focused on alcohol tourism in the state of oregon, where users can chat about different types of drinks in different regions around the state.',
-	        takeaway: 'This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the backend portion of the program.  Our focus was to save user accounts, preferences, and contibutions in our Mongo database.',
-	        date: 'November 2017',
-	        tech: 'mongoDB, node.js, express, HTML, CSS',
+	        description: '  A message board site focused on alcohol tourism in the state of oregon, where users can chat about different types of drinks in different regions around the state.',
+	        takeaway: '  This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the backend portion of the program.  Our focus was to save user accounts, preferences, and contibutions in our Mongo database.',
+	        date: '  November 2017',
+	        tech: '  mongoDB, node.js, express, HTML, CSS',
 	        showMore: false,
 	        type: 'group',
-	        index: 4
+	        index: 0
 	    }, {
 	        title: 'Transplantr',
 	        url: 'http://transplantr.herokuapp.com',
 	        imageURL: './images/transplantr.png',
-	        description: 'A site that lets users compare costs of living and housing costs for different cities.',
-	        takeaway: 'This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the frontend portion of the program.  Our focus was to make the site look great on mobile devices and pulll data from both the US census and Zillow APIs.',
-	        date: 'October 2017',
-	        tech: 'Jquery, handlebars, HTML, CSS',
+	        description: '  A site that lets users compare costs of living and housing costs for different cities.',
+	        takeaway: '  This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the frontend portion of the program.  Our focus was to make the site look great on mobile devices and pulll data from both the US census and Zillow APIs.',
+	        date: '  October 2017',
+	        tech: '  Jquery, handlebars, HTML, CSS',
 	        showMore: false,
 	        type: 'group',
+	        index: 1
+	    }, {
+	        title: 'Carter Hearts',
+	        url: 'https://carterhearts.com',
+	        imageURL: './images/carterHearts.png',
+	        description: '  A web-based single-player version of the card game hearts.',
+	        takeaway: '  I spent a lot of time continually tweaking the AI to make it smarter.  Eventually I got it to place where it could win games and even shoot the moon.  I even ended up adding "easy" AI players as a result of getting feedback from people that it was too difficult.  Give it a try!',
+	        date: '  March 2017',
+	        tech: '  MEAN Stack',
+	        showMore: false,
+	        type: 'solo',
+	        index: 2
+	    }, {
+	        title: 'Level Up Science',
+	        url: 'https://levelupscience.com',
+	        imageURL: './images/levelUpScience.png',
+	        description: '  A platform I buit to teach people, particularly students, science.  Right now, only a couple of the chemistry units are fleshed out.',
+	        takeaway: '  I purposely made this project huge, on the off chance that I ever wanted to work on it full time and roll it out as an eventually money-making venture.  The coolest feature about this site is that if you create a user account the site will track your progress for each discipline and each unit as you "level up" your skills. I\'m particularly proud of the chemistry section that uses the periodic table to dynamically generate new unique questions and answers each time you take a quiz.',
+	        date: '  June 2017',
+	        tech: '  MEAN Stack, Bootstrap',
+	        showMore: false,
+	        type: 'solo',
+	        index: 3
+	    }, {
+	        title: 'MBTI Personality Quiz',
+	        url: 'https://mbti-personality-test.herokuapp.com',
+	        imageURL: './images/mbti.png',
+	        description: '  A quick Meyers-Briggs personality quiz that will tell the user their personality type.',
+	        takeaway: '  Although I finished this project in a day, I feel like it works fairly accurately, and I particularly like the way the subtle stlying of the site turned out.',
+	        date: '  September 2017',
+	        tech: '  MEAN Stack',
+	        showMore: false,
+	        type: 'solo',
 	        index: 4
+	    }, {
+	        title: 'Play Magic the Gathering',
+	        url: 'https://play-mtg.herokuapp.com',
+	        imageURL: './images/magic.png',
+	        description: '  A web app that lets you play Magic the Gathering, the popular tabletop card game with decks of your own construction.',
+	        takeaway: '  This web app is a work in progress. Currently I\'m working on the gameplay and the AI.',
+	        date: '  ongoing',
+	        tech: '  MEAN Stack',
+	        showMore: false,
+	        type: 'solo',
+	        index: 5
 	    }];
 	
-	    this.featuredWebsite = this.projects[0];
+	    var num = Math.round(Math.random() + 1) * 2;
+	    console.log('num is ', num);
+	    this.featuredWebsite = this.projects[num];
 	};
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports) {
 
-	module.exports = "<section>\n    <div class=\"home-header\">\n        <h1>Home Page Content Here</h1>\n    </div>\n\n   \n    <div class=\"website-gallery\">\n        <div class=\"featured-project\">\n            <h2>Featured Web App: {{$ctrl.featuredWebsite.title}}</h2>\n            <image class=\"featured-project-image\" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>\n            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>\n            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>\n            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>\n            <p>Date: {{$ctrl.featuredWebsite.date}}</p>\n            <a>{{$ctrl.featuredWebsite.url}}</a>\n        </div>\n\n       \n         <div class=\"solo-projects\"> \n            <h2>Solo Projects</h2>\n            <ul>\n                <!-- ng-if=\"project.type==='solo'\"  -->\n                <li class=\"project\"  ng-repeat=\"project in $ctrl.projects\" ng-click=\"$ctrl.toggleProject(project)\" ng-class='{\"clickedProject\":project.showMore===true}'>\n                    <div class=\"project-title\">\n                        <h2>{{project.title}}</h2>\n                    </div>\n                    <div class=\"project-content\" ng-if=\"project.showMore===true\">\n                         <image class=\"project-image\" title={{project.title}} src={{project.imageURL}}  />\n                        <!-- <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                        <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button> \n                        <div ng-if=\"project.showMore===true\"> -->\n                            <p>Description: {{project.description}}</p>\n                            <p>Developer Notes: {{project.takeaway}}</p>\n                            <p>Techonology Used: {{project.tech}}</p>\n                            <p>Date: {{project.date}}</p>\n                            <div class=\"wrapper\">\n                                <span class=\"square\">\n                                    <a class=\"site-link before after\" href=\"{{project.url}}\">{{project.url}}</a> \n                                </span>\n                            </div>\n                           \n                        <!-- </div> -->   \n                    </div>\n                </li>\n            </ul>\n         </div> \n\n        <div class=\"group-projects\">\n            <h2>Group Projects</h2>\n           \n            <div class=\"project\" ng-class= '{\"clickedProject\":project.showMore===true}' clicked-project ng-repeat=\"project in $ctrl.projects\" ng-if=\"project.type==='group'\">\n                <h2>{{project.title}}</h2>\n                <image class=\"project-image\" src={{project.imageURL}} title={{project.title}} />\n                <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button>\n                <div ng-if=\"project.showMore===true\">\n                    <p>Description: {{project.description}}</p>\n                    <p>Developer Notes: {{project.takeaway}}</p>\n                    <p>Techonology Used: {{project.tech}}</p>\n                    <p>Date: {{project.date}}</p>\n                </div>\n                <br>\n                <a>{{project.url}}</a>\n            </div>\n        <div>\n    <div>\n\n</section>";
+	module.exports = "<section>\n    <div class=\"home-header\">\n        <h1>Home Page Content Here</h1>\n    </div>\n\n   \n    <div class=\"website-gallery\">\n        <div class=\"featured-project\">\n            <h2>Featured Web App: {{$ctrl.featuredWebsite.title}}</h2>\n            <image class=\"featured-project-image\" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>\n            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>\n            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>\n            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>\n            <p>Date: {{$ctrl.featuredWebsite.date}}</p>\n            <a>{{$ctrl.featuredWebsite.url}}</a>\n        </div>\n\n       \n         <div class=\"solo-projects\"> \n            <h2>Solo Projects</h2>\n            <ul>\n                <!-- ng-if=\"project.type==='solo'\"  -->\n                <li class=\"project\"  ng-repeat=\"project in $ctrl.projects\" ng-click=\"$ctrl.toggleProject(project)\" ng-class='{\"clickedProject\":project.showMore===true}'>\n                    <div class=\"project-title\">\n                        <h2>{{project.title}}</h2>\n                    </div>\n                    <div class=\"project-content\" ng-if=\"project.showMore===true\">\n                         <image class=\"project-image\" title={{project.title}} src={{project.imageURL}}  />\n                        <!-- <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                        <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button> \n                        <div ng-if=\"project.showMore===true\"> -->\n                            <p class=\"project-text\">Description: {{project.description}}</p>\n                            <p class=\"project-text\">Developer Notes: {{project.takeaway}}</p>\n                            <p class=\"project-text\">Techonology Used: {{project.tech}}</p>\n                            <p class=\"project-text\">Date: {{project.date}}</p>\n                            <div class=\"wrapper\">\n                                <span class=\"square\">\n                                    <a class=\"site-link before after\" href=\"{{project.url}}\">{{project.url}}</a> \n                                </span>\n                            </div>\n                           \n                        <!-- </div> -->   \n                    </div>\n                </li>\n            </ul>\n         </div> \n\n        <div class=\"group-projects\">\n            <h2>Group Projects</h2>\n           \n            <div class=\"project\" ng-class= '{\"clickedProject\":project.showMore===true}' clicked-project ng-repeat=\"project in $ctrl.projects\" ng-if=\"project.type==='group'\">\n                <h2>{{project.title}}</h2>\n                <image class=\"project-image\" src={{project.imageURL}} title={{project.title}} />\n                <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button>\n                <div ng-if=\"project.showMore===true\">\n                    <p>Description: {{project.description}}</p>\n                    <p>Developer Notes: {{project.takeaway}}</p>\n                    <p>Techonology Used: {{project.tech}}</p>\n                    <p>Date: {{project.date}}</p>\n                </div>\n                <br>\n                <a>{{project.url}}</a>\n            </div>\n        <div>\n    <div>\n\n</section>";
 
 /***/ }),
 /* 16 */
