@@ -60,7 +60,8 @@ td, th {
   height: 30vw; }
 
 .project-text {
-  text-align: left; }
+  text-align: left;
+  margin: 1.5 vh; }
 
 ul {
   display: flex;
@@ -90,10 +91,11 @@ li {
     li.clickedProject .project-content {
       flex: 4;
       flex-direction: column;
-      wodth: 40vw;
+      width: 40vw;
       opacity: 1;
       transform: scaleX(1);
-      color: #012a36; }
+      color: #012a36;
+      margin: 0; }
     li.clickedProject .project-title {
       color: #012a36; }
       li.clickedProject .project-title h2 {
@@ -157,7 +159,7 @@ a.before:before, a.after:after {
   height: 5px;
   height: 0.1rvh;
   width: 0;
-  background: pink; }
+  background: #012a36; }
 
 a.before:hover:before, a.after:hover:after {
   width: 100%; }
