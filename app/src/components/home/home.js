@@ -23,9 +23,7 @@ function controller() {
         }
     };
 
-    // this.showLess = (project)=>{
-    //     return this.projects[project.index].showMore = false;
-    // };
+    this.location = 'home';
 
     this.projects = [
         {
