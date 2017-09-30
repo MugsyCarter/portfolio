@@ -28,7 +28,7 @@ function controller() {
     // };
 
     this.projects = [
-                {
+        {
             title: 'Imbibe-or',
             url: 'http://imbibe-or.herokuapp.com',
             imageURL: './images/imbibeor.png',

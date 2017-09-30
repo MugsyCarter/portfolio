@@ -1,6 +1,6 @@
 <section>
     <div class="home-header">
-        <h1>Home Page Content Here</h1>
+        <h1>Mugsy Carter, Web Developer</h1>
     </div>
 
    
@@ -17,7 +17,7 @@
 
        
          <div class="solo-projects"> 
-            <h2>Solo Projects</h2>
+            <h2>Web Apps</h2>
             <ul>
                 <!-- ng-if="project.type==='solo'"  -->
                 <li class="project"  ng-repeat="project in $ctrl.projects" ng-click="$ctrl.toggleProject(project)" ng-class='{"clickedProject":project.showMore===true}'>
@@ -45,24 +45,15 @@
             </ul>
          </div> 
 
-        <!-- <div class="group-projects">
-            <h2>Group Projects</h2>
-           
-            <div class="project" ng-class= '{"clickedProject":project.showMore===true}' clicked-project ng-repeat="project in $ctrl.projects" ng-if="project.type==='group'">
-                <h2>{{project.title}}</h2>
-                <image class="project-image" src={{project.imageURL}} title={{project.title}} />
-                <button ng-if="project.showMore===false"ng-click="$ctrl.showMore(project)">show more</button>
-                <button ng-if="project.showMore===true" ng-click="$ctrl.showLess(project)">show less</button>
-                <div ng-if="project.showMore===true">
-                    <p>Description: {{project.description}}</p>
-                    <p>Developer Notes: {{project.takeaway}}</p>
-                    <p>Techonology Used: {{project.tech}}</p>
-                    <p>Date: {{project.date}}</p>
-                </div>
-                <br>
-                <a>{{project.url}}</a>
+        <div class="bio-section">
+            <h1 class="bio-header">
+            </h1>
+            <image class="mugsy-image" title="MugsyCarter" src='./images/mugsy.png',/>
+            <div class="bio-section">
+                <h1 class="section-header">Section</h1>
+                <p class="section-text">Section text goes here</p>
             </div>
-        <div>
-    <div> -->
+
+        </div>
 
 </section>
