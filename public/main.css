@@ -43,12 +43,12 @@ td, th {
   color: #e6af2e; }
 
 .title {
-  font-size: 16vh;
+  font-size: 12vh;
   margin: 4vh;
   color: #012a36; }
 
 .subtitle {
-  font-size: 4vh; }
+  font-size: 8vh; }
 
 .featured-project {
   width: 80vw;
@@ -91,7 +91,6 @@ li {
     li.clickedProject .project-content {
       flex: 4;
       flex-direction: column;
-      width: 40vw;
       opacity: 1;
       transform: scaleX(1);
       color: #012a36;
@@ -121,7 +120,7 @@ li {
     margin: 0;
     padding: 0;
     opacity: 0;
-    transition: all .25s .1s ease-out; }
+    transition: all 2.5s .1s ease-out; }
 
 .project-image {
   width: 20vw;

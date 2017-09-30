@@ -1,12 +1,14 @@
 <section>
-    <div class="home-header">
+    <div class="title">
         <h1>Mugsy Carter, Web Developer</h1>
     </div>
 
    
     <div class="website-gallery">
+        <h1 class="title">Projects</h1>
+
         <div class="featured-project">
-            <h2>Featured Web App: {{$ctrl.featuredWebsite.title}}</h2>
+            <h1 class="subtitle">Featured Web App: {{$ctrl.featuredWebsite.title}}</h1>
             <image class="featured-project-image" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>
             <p>Decription: {{$ctrl.featuredWebsite.description}}</p>
             <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>
@@ -15,9 +17,8 @@
             <a>{{$ctrl.featuredWebsite.url}}</a>
         </div>
 
-       
          <div class="solo-projects"> 
-            <h2>Web Apps</h2>
+            <h1 clas="subtitle">Gallery</h1>
             <ul>
                 <!-- ng-if="project.type==='solo'"  -->
                 <li class="project"  ng-repeat="project in $ctrl.projects" ng-click="$ctrl.toggleProject(project)" ng-class='{"clickedProject":project.showMore===true}'>
@@ -46,11 +47,17 @@
          </div> 
 
         <div class="bio-section">
-            <h1 class="bio-header">
+            <h1 class="title">
             </h1>
-            <image class="mugsy-image" title="MugsyCarter" src='./images/mugsy.png',/>
             <div class="bio-section">
-                <h1 class="section-header">Section</h1>
+                <image class="bio-image" title="MugsyCarter" src='./images/mugsy.png'/>
+                <h1 class="subtitle">Section</h1>
+                <p class="section-text">Section text goes here</p>
+            </div>
+
+            <div class="bio-section">
+                <image class="bio-image" title="MugsyCarter" src='./images/mugsy.png'/>
+                <h1 class="subtitle">Section</h1>
                 <p class="section-text">Section text goes here</p>
             </div>
 
