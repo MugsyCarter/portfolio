@@ -50,6 +50,9 @@ td, th {
 .subtitle {
   font-size: 8vh; }
 
+.section-block {
+  cursor: pointer; }
+
 #projects-block {
   position: absolute;
   width: 50vw;
