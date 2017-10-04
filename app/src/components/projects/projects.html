@@ -1,0 +1,45 @@
+<section>
+
+    <div id="projects-block" ng-if="$ctrl.location==='projects'">
+        <h1 class="title">Projects</h1>
+
+        <div class="featured-project">
+            <h1 class="subtitle">Featured Web App: {{$ctrl.featuredWebsite.title}}</h1>
+            <image class="featured-project-image" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>
+            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>
+            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>
+            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>
+            <p>Date: {{$ctrl.featuredWebsite.date}}</p>
+            <a>{{$ctrl.featuredWebsite.url}}</a>
+        </div>
+
+         <div class="solo-projects"> 
+            <h1 clas="subtitle">Gallery</h1>
+            <ul>
+                <!-- ng-if="project.type==='solo'"  -->
+                <li class="project"  ng-repeat="project in $ctrl.projects" ng-click="$ctrl.toggleProject(project)" ng-class='{"clickedProject":project.showMore===true}'>
+                    <div class="project-title">
+                        <h2>{{project.title}}</h2>
+                    </div>
+                    <div class="project-content" ng-if="project.showMore===true">
+                         <image class="project-image" title={{project.title}} src={{project.imageURL}}  />
+                        <!-- <button ng-if="project.showMore===false"ng-click="$ctrl.showMore(project)">show more</button>
+                        <button ng-if="project.showMore===true" ng-click="$ctrl.showLess(project)">show less</button> 
+                        <div ng-if="project.showMore===true"> -->
+                            <p class="project-text">Description: {{project.description}}</p>
+                            <p class="project-text">Developer Notes: {{project.takeaway}}</p>
+                            <p class="project-text">Techonology Used: {{project.tech}}</p>
+                            <p class="project-text">Date: {{project.date}}</p>
+                            <div class="wrapper">
+                                <span class="square">
+                                    <a class="site-link before after" href="{{project.url}}">{{project.url}}</a> 
+                                </span>
+                            </div>
+                           
+                        <!-- </div> -->   
+                    </div>
+                </li>
+            </ul>
+         </div> 
+    </div>
+</section>
