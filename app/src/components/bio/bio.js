@@ -1,4 +1,4 @@
-import template from './projects.html';
+import template from './bio.html';
 
 export default {
     template,
@@ -23,7 +23,7 @@ function controller() {
         }
     };
 
-    this.location = 'projects';
+    this.location = 'home';
 
     console.log('location is ', this.location);
 
