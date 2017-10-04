@@ -25,6 +25,8 @@ function controller() {
 
     this.location = 'home';
 
+    console.log('location is ', this.location);
+
     this.projects = [
         {
             title: 'Imbibe-or',

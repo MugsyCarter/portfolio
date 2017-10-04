@@ -22,7 +22,7 @@
     </div>
 
 
-    <div class="website-gallery" ng-if="$ctrl.location==='projects'">
+    <div id="projects-block" ng-if="$ctrl.location==='projects'">
         <h1 class="title">Projects</h1>
 
         <div class="featured-project">
@@ -64,8 +64,9 @@
             </ul>
          </div> 
 
-        <div class="bio-section" ng-if="$ctrl.location==='bio'">
+        <div id="bio-section" ng-if="$ctrl.location==='bio'">
             <h1 class="title">
+                About Mugsy
             </h1>
             <div class="bio-section">
                 <image class="bio-image" title="MugsyCarter" src='./images/mugsy.png'/>
@@ -80,5 +81,25 @@
             </div>
 
         </div>
+
+        <div id="contact-section" ng-if="$ctrl.location==='contact'">
+            <h1 class="title">
+                Contact Mugsy
+            </h1>
+            <div class="bio-section">
+                <image class="bio-image" title="MugsyCarter" src='./images/mugsy.png'/>
+                <h1 class="subtitle">Section</h1>
+                <p class="section-text">Section text goes here</p>
+            </div>
+
+            <div class="bio-section">
+                <image class="bio-image" title="MugsyCarter" src='./images/mugsy.png'/>
+                <h1 class="subtitle">Section</h1>
+                <p class="section-text">Section text goes here</p>
+            </div>
+
+        </div>
+
+
 
 </section>

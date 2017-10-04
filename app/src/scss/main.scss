@@ -53,17 +53,22 @@ td, th{
   width: 50vw;
   height: 50vh;
   cursor: pointer;
+  align-content: center;
 }
 
 .section-label{
+  font-size: 10vh;
   color: white;
 }
 
 #projects-block{
+  top: 0vh;
   background-color: pink;
 }
 
 #bio-block{
+  top: 0vh;
+  right: 0vh;
   background-color: $blue;
 }
 
@@ -72,6 +77,7 @@ td, th{
 }
 
 #contact-block{
+  right: 0vh;
   background-color: $yellow;
 }
 
