@@ -1,26 +1,28 @@
 <section>
-    <div class="title">
-        <h1>Mugsy Carter, Web Developer</h1>
+    <div ng-if="$ctrl.location==='home'">
+        <div class="title">
+            <h1>Mugsy Carter, Web Developer</h1>
+        </div>
+
+        <div class="section-block" ng-click="$ctrl.location = 'projects'">
+            <h1>projects</h1>
+        </div>
+
+        <div class="section-block" ng-click="$ctrl.location = 'bio'">
+            <h1>bio</h1>
+        </div>
+
+        <div class="section-block" ng-click="$ctrl.location = 'resume'">
+            <h1>resume</h1>
+        </div>
+    
+        <div class="section-block" ng-click="$ctrl.location = 'contact'">
+            <h1>contact</h1>
+        </div>
     </div>
 
-     <div class="section-block" ng-click="$ctrl.location = 'projects'">
-        <h1>projects</h1>
-    </div>
 
-    <div class="section-block" ng-click="$ctrl.location = 'bio'">
-        <h1>bio</h1>
-    </div>
-
-    <div class="section-block" ng-click="$ctrl.location = 'resume'">
-        <h1>resume</h1>
-    </div>
-   
-    <div class="section-block" ng-click="$ctrl.location = 'contact'">
-        <h1>contact</h1>
-    </div>
-
-
-    <div class="website-gallery">
+    <div class="website-gallery" ng-if="$ctrl.location==='projects'">
         <h1 class="title">Projects</h1>
 
         <div class="featured-project">
@@ -62,7 +64,7 @@
             </ul>
          </div> 
 
-        <div class="bio-section">
+        <div class="bio-section" ng-if="$ctrl.location==='bio'">
             <h1 class="title">
             </h1>
             <div class="bio-section">
