@@ -50,6 +50,13 @@ td, th {
 .subtitle {
   font-size: 8vh; }
 
+#projects-block {
+  position: absolute;
+  width: 50vw;
+  height: 50vh;
+  color: pink;
+  background-color: #012a36; }
+
 .featured-project {
   width: 80vw;
   box-shadow: 1vw 0.1vw 1vw #888888;

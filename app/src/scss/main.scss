@@ -48,7 +48,19 @@ td, th{
   font-size: 8vh;
 }
 
-//home page stuff
+.section-block{
+
+}
+
+#projects-block{
+  position: absolute;
+  width: 50vw;
+  height: 50vh;
+  color: pink;
+  background-color: $blue;
+}
+
+
 //featured project
 
 .featured-project{
