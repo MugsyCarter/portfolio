@@ -49,15 +49,30 @@ td, th{
 }
 
 .section-block{
-  cursor: pointer;
-}
-
-#projects-block{
   position: absolute;
   width: 50vw;
   height: 50vh;
-  color: pink;
+  cursor: pointer;
+}
+
+.section-label{
+  color: white;
+}
+
+#projects-block{
+  background-color: pink;
+}
+
+#bio-block{
   background-color: $blue;
+}
+
+#resume-block{
+  background-color: $green;
+}
+
+#contact-block{
+  background-color: $yellow;
 }
 
 
