@@ -65,6 +65,9 @@ td, th{
   top: 0vh;
   background-color: pink;
 }
+#projects-section-label{
+  color: $blue;
+}
 
 #bio-block{
   top: 0vh;
@@ -72,13 +75,25 @@ td, th{
   background-color: $blue;
 }
 
+#bio-section-label{
+  color: white;
+}
+
 #resume-block{
-  background-color: $green;
+  background-color: white;
+}
+
+#resume-section-label{
+  color: $blue;
 }
 
 #contact-block{
   right: 0vh;
   background-color: $yellow;
+}
+
+#contact-section-label{
+  color: $blue;
 }
 
 
