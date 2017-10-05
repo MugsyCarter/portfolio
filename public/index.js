@@ -56,19 +56,19 @@
 	
 	var _components2 = _interopRequireDefault(_components);
 	
-	var _services = __webpack_require__(16);
+	var _services = __webpack_require__(24);
 	
 	var _services2 = _interopRequireDefault(_services);
 	
-	var _angularUiRouter = __webpack_require__(18);
+	var _angularUiRouter = __webpack_require__(26);
 	
 	var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 	
-	var _routes = __webpack_require__(104);
+	var _routes = __webpack_require__(112);
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	__webpack_require__(105);
+	__webpack_require__(113);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -34536,7 +34536,11 @@
 
 	var map = {
 		"./app/app.js": 12,
-		"./home/home.js": 14
+		"./bio/bio.js": 14,
+		"./contact/contact.js": 16,
+		"./home/home.js": 18,
+		"./projects/projects.js": 20,
+		"./resume/resume.js": 22
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -34577,27 +34581,12 @@
 	function controller() {
 	    var _this = this;
 	
-	    //this code prevents scrolldown on an iphone
-	    var xStart,
-	        yStart = 0;
-	
-	    document.addEventListener('touchstart', function (e) {
-	        xStart = e.touches[0].screenX;
-	        yStart = e.touches[0].screenY;
-	    });
-	
-	    document.addEventListener('touchmove', function (e) {
-	        var xMovement = Math.abs(e.touches[0].screenX - xStart);
-	        var yMovement = Math.abs(e.touches[0].screenY - yStart);
-	        if (yMovement * 3 > xMovement) {
-	            e.preventDefault();
-	        }
-	    });
-	
 	    this.link = {
 	        home: true,
-	        test: false,
-	        about: false
+	        projects: false,
+	        bio: false,
+	        contact: false,
+	        resume: false
 	    };
 	
 	    this.clicked = function (page) {
@@ -34605,8 +34594,10 @@
 	            console.log('updating link');
 	            _this.link = {
 	                home: false,
-	                test: false,
-	                about: false
+	                projects: false,
+	                bio: false,
+	                contact: false,
+	                resume: false
 	            };
 	            _this.link[page] = true;
 	        }
@@ -34617,7 +34608,7 @@
 /* 13 */
 /***/ (function(module, exports) {
 
-	module.exports = " <section>\n    <!-- <header> -->\n       \n        <!-- <nav class=\"main-nav\">\n            <image id=\"menuIcon\" src=\"./images/menu.png\">\n            <ul>\n                <li class=\"link\"><a ui-sref=\"home\" id=\"home-link\"  ng-class='{\"activeLink\":$ctrl.link[\"home\"]===true}' ng-click=\"$ctrl.clicked('home')\">Home</a></li> -->\n                <!-- <li class=\"link\"><a ui-sref=\"test\" id=\"test-link\" ng-class='{\"activeLink\":$ctrl.link[\"test\"]===true}' ng-click=\"$ctrl.clicked('test')\">Find My Type</a></li> -->\n                <!-- <li class=\"link\"><a ui-sref=\"typical\" id=\"typical-link\" ng-class='{\"activeLink\":$ctrl.link[\"typical\"]===true}' ng-click=\"$ctrl.clicked('typical')\">See How Typical I Am</a></li> -->\n                <!-- <li class=\"link\"><a ui-sref=\"about\" id=\"about-link\"  ng-class='{\"activeLink\":$ctrl.link[\"about\"]===true}' ng-click=\"$ctrl.clicked('about')\">About</a></li> -->\n            <!-- </ul>\n        </nav>\n    </header> -->\n  \n    <div class=\"main-content\">\n        <ui-view></ui-view>\n    </div>\n  </section>";
+	module.exports = " <section>\n     <header ng-if=\"$ctrl.header===true\">\n         <nav class=\"main-nav\">\n            <image id=\"menuIcon\" src=\"./images/menu.png\">\n            <ul>\n                <li class=\"link\"><a ui-sref=\"home\" id=\"home-link\"  ng-class='{\"activeLink\":$ctrl.link[\"home\"]===true}' ng-click=\"$ctrl.clicked('home')\">Home</a></li> -->\n                <li class=\"link\"><a ui-sref=\"projects\" id=\"projects-link\" ng-class='{\"activeLink\":$ctrl.link[\"projects\"]===true}' ng-click=\"$ctrl.clicked('projects')\">Projects</a></li>\n                 <li class=\"link\"><a ui-sref=\"bio\" id=\"bio-link\" ng-class='{\"activeLink\":$ctrl.link[\"bio\"]===true}' ng-click=\"$ctrl.clicked('bio')\">About Mugsy</a></li> \n                 <li class=\"link\"><a ui-sref=\"resume\" id=\"resume-link\"  ng-class='{\"activeLink\":$ctrl.link[\"resume\"]===true}' ng-click=\"$ctrl.clicked('resume')\">Resume</a></li>\n                 <li class=\"link\"><a ui-sref=\"contact\" id=\"contact-link\"  ng-class='{\"activeLink\":$ctrl.link[\"contact\"]===true}' ng-click=\"$ctrl.clicked('contact')\">contact</a></li>  \n            </ul>\n        </nav>\n    </header>  \n  \n    <div class=\"main-content\">\n        <ui-view></ui-view>\n    </div>\n  </section>";
 
 /***/ }),
 /* 14 */
@@ -34629,14 +34620,49 @@
 	    value: true
 	});
 	
-	var _home = __webpack_require__(15);
+	var _bio = __webpack_require__(15);
 	
-	var _home2 = _interopRequireDefault(_home);
+	var _bio2 = _interopRequireDefault(_bio);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	    template: _home2.default,
+	    template: _bio2.default,
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	
+	    this.location = 'bio';
+	
+	    console.log('location is ', this.location);
+	};
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+	module.exports = "<section>\n    <div id=\"bio-section\" ng-if=\"$ctrl.location==='bio'\">\n        <h1 class=\"title\">\n            About Mugsy\n        </h1>\n        <div class=\"bio-section\">\n            <image class=\"bio-image\" title=\"MugsyCarter\" src='./images/mugsy.png'/>\n            <h1 class=\"subtitle\">Section</h1>\n            <p class=\"section-text\">Section text goes here</p>\n        </div>\n\n        <div class=\"bio-section\">\n            <image class=\"bio-image\" title=\"MugsyCarter\" src='./images/mugsy.png'/>\n            <h1 class=\"subtitle\">Section</h1>\n            <p class=\"section-text\">Section text goes here</p>\n        </div>\n    </div>\n</section>";
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _contact = __webpack_require__(17);
+	
+	var _contact2 = _interopRequireDefault(_contact);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _contact2.default,
 	    controller: controller
 	};
 	
@@ -34655,7 +34681,9 @@
 	        }
 	    };
 	
-	    this.location = 'home';
+	    this.location = 'contact';
+	
+	    console.log('location is ', this.location);
 	
 	    this.projects = [{
 	        title: 'Imbibe-or',
@@ -34731,13 +34759,286 @@
 	};
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports) {
 
-	module.exports = "<section>\n    <div ng-if=\"$ctrl.location==='home'\">\n        <div class=\"title\">\n            <h1>Mugsy Carter, Web Developer</h1>\n        </div>\n\n        <div class=\"section-block\" id=\"projects-block\" ng-click=\"$ctrl.location = 'projects'\">\n            <h1 class='section-label' id='projects-section-label'>projects</h1>\n        </div>\n\n        <div class=\"section-block\" id=\"bio-block\" ng-click=\"$ctrl.location = 'bio'\">\n            <h1 class='section-label' id='bio-section-label'>bio</h1>\n        </div>\n\n        <div class=\"section-block\" id=\"resume-block\" ng-click=\"$ctrl.location = 'resume'\">\n            <h1 class='section-label' id='resume-section-label'>resume</h1>\n        </div>\n    \n        <div class=\"section-block\" id=\"contact-block\" ng-click=\"$ctrl.location = 'contact'\">\n            <h1 class='section-label' id='contact-section-label'>contact</h1>\n        </div>\n    </div>\n\n\n    <div class=\"website-gallery\" ng-if=\"$ctrl.location==='projects'\">\n        <h1 class=\"title\">Projects</h1>\n\n        <div class=\"featured-project\">\n            <h1 class=\"subtitle\">Featured Web App: {{$ctrl.featuredWebsite.title}}</h1>\n            <image class=\"featured-project-image\" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>\n            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>\n            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>\n            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>\n            <p>Date: {{$ctrl.featuredWebsite.date}}</p>\n            <a>{{$ctrl.featuredWebsite.url}}</a>\n        </div>\n\n         <div class=\"solo-projects\"> \n            <h1 clas=\"subtitle\">Gallery</h1>\n            <ul>\n                <!-- ng-if=\"project.type==='solo'\"  -->\n                <li class=\"project\"  ng-repeat=\"project in $ctrl.projects\" ng-click=\"$ctrl.toggleProject(project)\" ng-class='{\"clickedProject\":project.showMore===true}'>\n                    <div class=\"project-title\">\n                        <h2>{{project.title}}</h2>\n                    </div>\n                    <div class=\"project-content\" ng-if=\"project.showMore===true\">\n                         <image class=\"project-image\" title={{project.title}} src={{project.imageURL}}  />\n                        <!-- <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                        <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button> \n                        <div ng-if=\"project.showMore===true\"> -->\n                            <p class=\"project-text\">Description: {{project.description}}</p>\n                            <p class=\"project-text\">Developer Notes: {{project.takeaway}}</p>\n                            <p class=\"project-text\">Techonology Used: {{project.tech}}</p>\n                            <p class=\"project-text\">Date: {{project.date}}</p>\n                            <div class=\"wrapper\">\n                                <span class=\"square\">\n                                    <a class=\"site-link before after\" href=\"{{project.url}}\">{{project.url}}</a> \n                                </span>\n                            </div>\n                           \n                        <!-- </div> -->   \n                    </div>\n                </li>\n            </ul>\n         </div> \n\n        <div class=\"bio-section\" ng-if=\"$ctrl.location==='bio'\">\n            <h1 class=\"title\">\n            </h1>\n            <div class=\"bio-section\">\n                <image class=\"bio-image\" title=\"MugsyCarter\" src='./images/mugsy.png'/>\n                <h1 class=\"subtitle\">Section</h1>\n                <p class=\"section-text\">Section text goes here</p>\n            </div>\n\n            <div class=\"bio-section\">\n                <image class=\"bio-image\" title=\"MugsyCarter\" src='./images/mugsy.png'/>\n                <h1 class=\"subtitle\">Section</h1>\n                <p class=\"section-text\">Section text goes here</p>\n            </div>\n\n        </div>\n\n</section>";
+	module.exports = "<section>\n    <div id=\"contact-section\" ng-if=\"$ctrl.location==='contact'\">\n        <h1 class=\"title\">\n            Contact Mugsy\n        </h1>\n        <div class=\"bio-section\">\n            <image class=\"bio-image\" title=\"MugsyCarter\" src='./images/mugsy.png'/>\n            <h1 class=\"subtitle\">Section</h1>\n            <p class=\"section-text\">Section text goes here</p>\n        </div>\n\n        <div class=\"bio-section\">\n            <image class=\"bio-image\" title=\"MugsyCarter\" src='./images/mugsy.png'/>\n            <h1 class=\"subtitle\">Section</h1>\n            <p class=\"section-text\">Section text goes here</p>\n        </div>\n    </div>\n</section>";
 
 /***/ }),
-/* 16 */
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _home = __webpack_require__(19);
+	
+	var _home2 = _interopRequireDefault(_home);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _home2.default,
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	    var _this = this;
+	
+	    this.toggleProject = function (project) {
+	        for (var i = 0; i < _this.projects.length; i++) {
+	            _this.projects[i].showMore = false;
+	        }
+	        if (project.showMore === true) {
+	            return _this.projects[project.index].showMore = false;
+	        } else {
+	            return _this.projects[project.index].showMore = true;
+	        }
+	    };
+	
+	    this.location = 'home';
+	
+	    console.log('location is ', this.location);
+	
+	    this.projects = [{
+	        title: 'Imbibe-or',
+	        url: 'http://imbibe-or.herokuapp.com',
+	        imageURL: './images/imbibeor.png',
+	        description: '  A message board site focused on alcohol tourism in the state of oregon, where users can chat about different types of drinks in different regions around the state.',
+	        takeaway: '  This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the backend portion of the program.  Our focus was to save user accounts, preferences, and contibutions in our Mongo database.',
+	        date: '  November 2017',
+	        tech: '  mongoDB, node.js, express, HTML, CSS',
+	        showMore: false,
+	        type: 'group',
+	        index: 0
+	    }, {
+	        title: 'Transplantr',
+	        url: 'http://transplantr.herokuapp.com',
+	        imageURL: './images/transplantr.png',
+	        description: '  A site that lets users compare costs of living and housing costs for different cities.',
+	        takeaway: '  This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the frontend portion of the program.  Our focus was to make the site look great on mobile devices and pulll data from both the US census and Zillow APIs.',
+	        date: '  October 2017',
+	        tech: '  Jquery, handlebars, HTML, CSS',
+	        showMore: false,
+	        type: 'group',
+	        index: 1
+	    }, {
+	        title: 'Carter Hearts',
+	        url: 'http://carterhearts.com',
+	        imageURL: './images/carterHearts.png',
+	        description: '  A web-based single-player version of the card game hearts.',
+	        takeaway: '  I spent a lot of time continually tweaking the AI to make it smarter.  Eventually I got it to place where it could win games and even shoot the moon.  I even ended up adding "easy" AI players as a result of getting feedback from people that it was too difficult.  Give it a try!',
+	        date: '  March 2017',
+	        tech: '  MEAN Stack',
+	        showMore: false,
+	        type: 'solo',
+	        index: 2
+	    }, {
+	        title: 'Level Up Science',
+	        url: 'http://levelupscience.com',
+	        imageURL: './images/levelUpScience.png',
+	        description: '  A platform I buit to teach people, particularly students, science.  Right now, only a couple of the chemistry units are fleshed out.',
+	        takeaway: '  I purposely made this project huge, on the off chance that I ever wanted to work on it full time and roll it out as an eventually money-making venture.  The coolest feature about this site is that if you create a user account the site will track your progress for each discipline and each unit as you "level up" your skills. I\'m particularly proud of the chemistry section that uses the periodic table to dynamically generate new unique questions and answers each time you take a quiz.',
+	        date: '  June 2017',
+	        tech: '  MEAN Stack, Bootstrap',
+	        showMore: false,
+	        type: 'solo',
+	        index: 3
+	    }, {
+	        title: 'MBTI Personality Quiz',
+	        url: 'https://mbti-personality-test.herokuapp.com',
+	        imageURL: './images/mbti.png',
+	        description: '  A quick Meyers-Briggs personality quiz that will tell the user their personality type.',
+	        takeaway: '  Although I finished this project in a day, I feel like it works fairly accurately, and I particularly like the way the subtle stlying of the site turned out.',
+	        date: '  September 2017',
+	        tech: '  MEAN Stack',
+	        showMore: false,
+	        type: 'solo',
+	        index: 4
+	    }, {
+	        title: 'Play Magic the Gathering',
+	        url: 'https://play-mtg.herokuapp.com',
+	        imageURL: './images/magic.png',
+	        description: '  A web app that lets you play Magic the Gathering, the popular tabletop card game with decks of your own construction.',
+	        takeaway: '  This web app is a work in progress. Currently I\'m working on the gameplay and the AI.',
+	        date: '  ongoing',
+	        tech: '  MEAN Stack',
+	        showMore: false,
+	        type: 'solo',
+	        index: 5
+	    }];
+	
+	    var num = Math.round(Math.random() + 1) * 2;
+	    console.log('num is ', num);
+	    this.featuredWebsite = this.projects[num];
+	};
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+	module.exports = "<section>\n    <div ng-if=\"$ctrl.location==='home'\">\n        <div class='title-holder'>\n            <h1 class=\"title\">Mugsy Carter, Web Developer</h1>\n        </div>\n\n        <div class=\"section-block\" id=\"projects-block\">\n            <a ui-sref=\"projects\">\n                <h1 class='section-label' id='projects-section-label'>\n                    Projects\n                </h1>\n            </a>\n        </div>\n\n        <div class=\"section-block\" id=\"bio-block\">\n            <a ui-sref=\"bio\">\n                <h1 class='section-label' id='bio-section-label'>\n                    About Mugsy\n                </h1>\n            </a>\n        </div>\n\n        <div class=\"section-block\" id=\"resume-block\">\n            <a ui-sref=\"resume\">\n                <h1 class='section-label' id='resume-section-label'>\n                    Resume\n                </h1>\n            </a>\n        </div>\n    \n        <div class=\"section-block\" id=\"contact-block\">\n            <a ui-sref=\"contact\">\n                <h1 class='section-label' id='contact-section-label'>\n                    Contact\n                </h1>\n            </a>\n        </div>\n    </div>\n</section>";
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _projects = __webpack_require__(21);
+	
+	var _projects2 = _interopRequireDefault(_projects);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _projects2.default,
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	    var _this = this;
+	
+	    this.toggleProject = function (project) {
+	        for (var i = 0; i < _this.projects.length; i++) {
+	            _this.projects[i].showMore = false;
+	        }
+	        if (project.showMore === true) {
+	            return _this.projects[project.index].showMore = false;
+	        } else {
+	            return _this.projects[project.index].showMore = true;
+	        }
+	    };
+	
+	    this.location = 'projects';
+	
+	    console.log('location is ', this.location);
+	
+	    this.projects = [{
+	        title: 'Imbibe-or',
+	        url: 'http://imbibe-or.herokuapp.com',
+	        imageURL: './images/imbibeor.png',
+	        description: '  A message board site focused on alcohol tourism in the state of oregon, where users can chat about different types of drinks in different regions around the state.',
+	        takeaway: '  This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the backend portion of the program.  Our focus was to save user accounts, preferences, and contibutions in our Mongo database.',
+	        date: '  November 2017',
+	        tech: '  mongoDB, node.js, express, HTML, CSS',
+	        showMore: false,
+	        type: 'group',
+	        index: 0
+	    }, {
+	        title: 'Transplantr',
+	        url: 'http://transplantr.herokuapp.com',
+	        imageURL: './images/transplantr.png',
+	        description: '  A site that lets users compare costs of living and housing costs for different cities.',
+	        takeaway: '  This was a group project from the Code Fellows Advanced Web-Development in full stack JavaScript program from the frontend portion of the program.  Our focus was to make the site look great on mobile devices and pulll data from both the US census and Zillow APIs.',
+	        date: '  October 2017',
+	        tech: '  Jquery, handlebars, HTML, CSS',
+	        showMore: false,
+	        type: 'group',
+	        index: 1
+	    }, {
+	        title: 'Carter Hearts',
+	        url: 'http://carterhearts.com',
+	        imageURL: './images/carterHearts.png',
+	        description: '  A web-based single-player version of the card game hearts.',
+	        takeaway: '  I spent a lot of time continually tweaking the AI to make it smarter.  Eventually I got it to place where it could win games and even shoot the moon.  I even ended up adding "easy" AI players as a result of getting feedback from people that it was too difficult.  Give it a try!',
+	        date: '  March 2017',
+	        tech: '  MEAN Stack',
+	        showMore: false,
+	        type: 'solo',
+	        index: 2
+	    }, {
+	        title: 'Level Up Science',
+	        url: 'http://levelupscience.com',
+	        imageURL: './images/levelUpScience.png',
+	        description: '  A platform I buit to teach people, particularly students, science.  Right now, only a couple of the chemistry units are fleshed out.',
+	        takeaway: '  I purposely made this project huge, on the off chance that I ever wanted to work on it full time and roll it out as an eventually money-making venture.  The coolest feature about this site is that if you create a user account the site will track your progress for each discipline and each unit as you "level up" your skills. I\'m particularly proud of the chemistry section that uses the periodic table to dynamically generate new unique questions and answers each time you take a quiz.',
+	        date: '  June 2017',
+	        tech: '  MEAN Stack, Bootstrap',
+	        showMore: false,
+	        type: 'solo',
+	        index: 3
+	    }, {
+	        title: 'MBTI Personality Quiz',
+	        url: 'https://mbti-personality-test.herokuapp.com',
+	        imageURL: './images/mbti.png',
+	        description: '  A quick Meyers-Briggs personality quiz that will tell the user their personality type.',
+	        takeaway: '  Although I finished this project in a day, I feel like it works fairly accurately, and I particularly like the way the subtle stlying of the site turned out.',
+	        date: '  September 2017',
+	        tech: '  MEAN Stack',
+	        showMore: false,
+	        type: 'solo',
+	        index: 4
+	    }, {
+	        title: 'Play Magic the Gathering',
+	        url: 'https://play-mtg.herokuapp.com',
+	        imageURL: './images/magic.png',
+	        description: '  A web app that lets you play Magic the Gathering, the popular tabletop card game with decks of your own construction.',
+	        takeaway: '  This web app is a work in progress. Currently I\'m working on the gameplay and the AI.',
+	        date: '  ongoing',
+	        tech: '  MEAN Stack',
+	        showMore: false,
+	        type: 'solo',
+	        index: 5
+	    }];
+	
+	    var num = Math.round(Math.random() + 1) * 2;
+	    console.log('num is ', num);
+	    this.featuredWebsite = this.projects[num];
+	};
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+	module.exports = "<section>\n\n    <div id=\"projects-block\" ng-if=\"$ctrl.location==='projects'\">\n        <h1 class=\"title\">Projects</h1>\n\n        <div class=\"featured-project\">\n            <h1 class=\"subtitle\">Featured Web App: {{$ctrl.featuredWebsite.title}}</h1>\n            <image class=\"featured-project-image\" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>\n            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>\n            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>\n            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>\n            <p>Date: {{$ctrl.featuredWebsite.date}}</p>\n            <a>{{$ctrl.featuredWebsite.url}}</a>\n        </div>\n\n         <div class=\"solo-projects\"> \n            <h1 clas=\"subtitle\">Gallery</h1>\n            <ul>\n                <!-- ng-if=\"project.type==='solo'\"  -->\n                <li class=\"project\"  ng-repeat=\"project in $ctrl.projects\" ng-click=\"$ctrl.toggleProject(project)\" ng-class='{\"clickedProject\":project.showMore===true}'>\n                    <div class=\"project-title\">\n                        <h2>{{project.title}}</h2>\n                    </div>\n                    <div class=\"project-content\" ng-if=\"project.showMore===true\">\n                         <image class=\"project-image\" title={{project.title}} src={{project.imageURL}}  />\n                        <!-- <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                        <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button> \n                        <div ng-if=\"project.showMore===true\"> -->\n                            <p class=\"project-text\">Description: {{project.description}}</p>\n                            <p class=\"project-text\">Developer Notes: {{project.takeaway}}</p>\n                            <p class=\"project-text\">Techonology Used: {{project.tech}}</p>\n                            <p class=\"project-text\">Date: {{project.date}}</p>\n                            <div class=\"wrapper\">\n                                <span class=\"square\">\n                                    <a class=\"site-link before after\" href=\"{{project.url}}\">{{project.url}}</a> \n                                </span>\n                            </div>\n                           \n                        <!-- </div> -->   \n                    </div>\n                </li>\n            </ul>\n         </div> \n    </div>\n</section>";
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _resume = __webpack_require__(23);
+	
+	var _resume2 = _interopRequireDefault(_resume);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    template: _resume2.default,
+	    controller: controller
+	};
+	
+	
+	function controller() {
+	
+	    this.location = 'resume';
+	
+	    console.log('location is ', this.location);
+	};
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+	module.exports = "<section>\n    <div id=\"resume-section\" ng-if=\"$ctrl.location==='resume'\">\n        <h1 class=\"title\">\n            Mugsy's Resume\n        </h1>\n    </div>\n</section>";
+
+/***/ }),
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34761,7 +35062,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// .context is a method webpack adds to require 
-	var context = __webpack_require__(17);
+	var context = __webpack_require__(25);
 	
 	// create the module to put the resources in,
 	// in this case directives
@@ -34780,7 +35081,7 @@
 	exports.default = _module.name;
 
 /***/ }),
-/* 17 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	function webpackContext(req) {
@@ -34789,11 +35090,11 @@
 	webpackContext.keys = function() { return []; };
 	webpackContext.resolve = webpackContext;
 	module.exports = webpackContext;
-	webpackContext.id = 17;
+	webpackContext.id = 25;
 
 
 /***/ }),
-/* 18 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -34805,23 +35106,23 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var core = __webpack_require__(19);
+	var core = __webpack_require__(27);
 	exports.core = core;
-	__export(__webpack_require__(19));
-	__export(__webpack_require__(91));
-	__export(__webpack_require__(93));
-	__export(__webpack_require__(95));
-	__export(__webpack_require__(98));
-	__webpack_require__(99);
-	__webpack_require__(100);
-	__webpack_require__(101);
-	__webpack_require__(102);
-	__webpack_require__(103);
+	__export(__webpack_require__(27));
+	__export(__webpack_require__(99));
+	__export(__webpack_require__(101));
+	__export(__webpack_require__(103));
+	__export(__webpack_require__(106));
+	__webpack_require__(107);
+	__webpack_require__(108);
+	__webpack_require__(109);
+	__webpack_require__(110);
+	__webpack_require__(111);
 	exports.default = "ui.router";
 	//# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 19 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -34833,22 +35134,22 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	Object.defineProperty(exports, "__esModule", { value: true });
-	__export(__webpack_require__(20));
-	__export(__webpack_require__(44));
-	__export(__webpack_require__(47));
-	__export(__webpack_require__(48));
-	__export(__webpack_require__(49));
-	__export(__webpack_require__(75));
-	__export(__webpack_require__(76));
-	__export(__webpack_require__(77));
-	__export(__webpack_require__(63));
+	__export(__webpack_require__(28));
+	__export(__webpack_require__(52));
+	__export(__webpack_require__(55));
+	__export(__webpack_require__(56));
 	__export(__webpack_require__(57));
-	__export(__webpack_require__(78));
-	__export(__webpack_require__(90));
+	__export(__webpack_require__(83));
+	__export(__webpack_require__(84));
+	__export(__webpack_require__(85));
+	__export(__webpack_require__(71));
+	__export(__webpack_require__(65));
+	__export(__webpack_require__(86));
+	__export(__webpack_require__(98));
 	//# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 20 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -34857,18 +35158,18 @@
 	}
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module common */ /** for typedoc */
-	__export(__webpack_require__(21));
-	__export(__webpack_require__(26));
-	__export(__webpack_require__(25));
-	__export(__webpack_require__(23));
-	__export(__webpack_require__(22));
-	__export(__webpack_require__(27));
-	__export(__webpack_require__(28));
+	__export(__webpack_require__(29));
+	__export(__webpack_require__(34));
+	__export(__webpack_require__(33));
 	__export(__webpack_require__(31));
+	__export(__webpack_require__(30));
+	__export(__webpack_require__(35));
+	__export(__webpack_require__(36));
+	__export(__webpack_require__(39));
 	//# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 21 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -34882,9 +35183,9 @@
 	 * @module common
 	 */
 	/** for typedoc */
-	var predicates_1 = __webpack_require__(22);
-	var hof_1 = __webpack_require__(23);
-	var coreservices_1 = __webpack_require__(26);
+	var predicates_1 = __webpack_require__(30);
+	var hof_1 = __webpack_require__(31);
+	var coreservices_1 = __webpack_require__(34);
 	var w = typeof window === 'undefined' ? {} : window;
 	var angular = w.angular || {};
 	exports.fromJson = angular.fromJson || JSON.parse.bind(JSON);
@@ -35520,7 +35821,7 @@
 	//# sourceMappingURL=common.js.map
 
 /***/ }),
-/* 22 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -35533,8 +35834,8 @@
 	 * @module common_predicates
 	 */
 	/** */
-	var hof_1 = __webpack_require__(23);
-	var stateObject_1 = __webpack_require__(24);
+	var hof_1 = __webpack_require__(31);
+	var stateObject_1 = __webpack_require__(32);
 	var toStr = Object.prototype.toString;
 	var tis = function (t) { return function (x) { return typeof (x) === t; }; };
 	exports.isUndefined = tis('undefined');
@@ -35572,7 +35873,7 @@
 	//# sourceMappingURL=predicates.js.map
 
 /***/ }),
-/* 23 */
+/* 31 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -35822,15 +36123,15 @@
 	//# sourceMappingURL=hof.js.map
 
 /***/ }),
-/* 24 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var common_1 = __webpack_require__(21);
-	var hof_1 = __webpack_require__(23);
-	var glob_1 = __webpack_require__(25);
-	var predicates_1 = __webpack_require__(22);
+	var common_1 = __webpack_require__(29);
+	var hof_1 = __webpack_require__(31);
+	var glob_1 = __webpack_require__(33);
+	var predicates_1 = __webpack_require__(30);
 	/**
 	 * Internal representation of a UI-Router state.
 	 *
@@ -35941,7 +36242,7 @@
 	//# sourceMappingURL=stateObject.js.map
 
 /***/ }),
-/* 25 */
+/* 33 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -36029,7 +36330,7 @@
 	//# sourceMappingURL=glob.js.map
 
 /***/ }),
-/* 26 */
+/* 34 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -36045,7 +36346,7 @@
 	//# sourceMappingURL=coreservices.js.map
 
 /***/ }),
-/* 27 */
+/* 35 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -36096,7 +36397,7 @@
 	//# sourceMappingURL=queue.js.map
 
 /***/ }),
-/* 28 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -36108,12 +36409,12 @@
 	 * @module common_strings
 	 */ /** */
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var predicates_1 = __webpack_require__(22);
-	var rejectFactory_1 = __webpack_require__(29);
-	var common_1 = __webpack_require__(21);
-	var hof_1 = __webpack_require__(23);
-	var transition_1 = __webpack_require__(30);
-	var resolvable_1 = __webpack_require__(41);
+	var predicates_1 = __webpack_require__(30);
+	var rejectFactory_1 = __webpack_require__(37);
+	var common_1 = __webpack_require__(29);
+	var hof_1 = __webpack_require__(31);
+	var transition_1 = __webpack_require__(38);
+	var resolvable_1 = __webpack_require__(49);
 	/**
 	 * Returns a string shortened to a maximum length
 	 *
@@ -36253,7 +36554,7 @@
 	//# sourceMappingURL=strings.js.map
 
 /***/ }),
-/* 29 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -36262,9 +36563,9 @@
 	 */ /** for typedoc */
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var common_1 = __webpack_require__(21);
-	var strings_1 = __webpack_require__(28);
-	var hof_1 = __webpack_require__(23);
+	var common_1 = __webpack_require__(29);
+	var strings_1 = __webpack_require__(36);
+	var hof_1 = __webpack_require__(31);
 	var RejectType;
 	(function (RejectType) {
 	    RejectType[RejectType["SUPERSEDED"] = 2] = "SUPERSEDED";
@@ -36347,7 +36648,7 @@
 	//# sourceMappingURL=rejectFactory.js.map
 
 /***/ }),
-/* 30 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -36357,20 +36658,20 @@
 	 * @module transition
 	 */
 	/** for typedoc */
-	var trace_1 = __webpack_require__(31);
-	var coreservices_1 = __webpack_require__(26);
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
-	var hof_1 = __webpack_require__(23);
-	var interface_1 = __webpack_require__(32); // has or is using
-	var transitionHook_1 = __webpack_require__(33);
-	var hookRegistry_1 = __webpack_require__(35);
-	var hookBuilder_1 = __webpack_require__(36);
-	var pathFactory_1 = __webpack_require__(37);
-	var targetState_1 = __webpack_require__(34);
-	var param_1 = __webpack_require__(39);
-	var resolvable_1 = __webpack_require__(41);
-	var resolveContext_1 = __webpack_require__(42);
+	var trace_1 = __webpack_require__(39);
+	var coreservices_1 = __webpack_require__(34);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
+	var hof_1 = __webpack_require__(31);
+	var interface_1 = __webpack_require__(40); // has or is using
+	var transitionHook_1 = __webpack_require__(41);
+	var hookRegistry_1 = __webpack_require__(43);
+	var hookBuilder_1 = __webpack_require__(44);
+	var pathFactory_1 = __webpack_require__(45);
+	var targetState_1 = __webpack_require__(42);
+	var param_1 = __webpack_require__(47);
+	var resolvable_1 = __webpack_require__(49);
+	var resolveContext_1 = __webpack_require__(50);
 	/** @hidden */
 	var stateSelf = hof_1.prop("self");
 	/**
@@ -36979,7 +37280,7 @@
 	//# sourceMappingURL=transition.js.map
 
 /***/ }),
-/* 31 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -37019,9 +37320,9 @@
 	 * @coreapi
 	 * @module trace
 	 */ /** for typedoc */
-	var hof_1 = __webpack_require__(23);
-	var predicates_1 = __webpack_require__(22);
-	var strings_1 = __webpack_require__(28);
+	var hof_1 = __webpack_require__(31);
+	var predicates_1 = __webpack_require__(30);
+	var strings_1 = __webpack_require__(36);
 	/** @hidden */
 	function uiViewString(viewData) {
 	    if (!viewData)
@@ -37227,7 +37528,7 @@
 	//# sourceMappingURL=trace.js.map
 
 /***/ }),
-/* 32 */
+/* 40 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -37248,7 +37549,7 @@
 	//# sourceMappingURL=interface.js.map
 
 /***/ }),
-/* 33 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -37258,15 +37559,15 @@
 	 * @module transition
 	 */
 	/** for typedoc */
-	var interface_1 = __webpack_require__(32);
-	var common_1 = __webpack_require__(21);
-	var strings_1 = __webpack_require__(28);
-	var predicates_1 = __webpack_require__(22);
-	var hof_1 = __webpack_require__(23);
-	var trace_1 = __webpack_require__(31);
-	var coreservices_1 = __webpack_require__(26);
-	var rejectFactory_1 = __webpack_require__(29);
-	var targetState_1 = __webpack_require__(34);
+	var interface_1 = __webpack_require__(40);
+	var common_1 = __webpack_require__(29);
+	var strings_1 = __webpack_require__(36);
+	var predicates_1 = __webpack_require__(30);
+	var hof_1 = __webpack_require__(31);
+	var trace_1 = __webpack_require__(39);
+	var coreservices_1 = __webpack_require__(34);
+	var rejectFactory_1 = __webpack_require__(37);
+	var targetState_1 = __webpack_require__(42);
 	var defaultOptions = {
 	    current: common_1.noop,
 	    transition: null,
@@ -37473,7 +37774,7 @@
 	//# sourceMappingURL=transitionHook.js.map
 
 /***/ }),
-/* 34 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -37482,8 +37783,8 @@
 	 * @module state
 	 */ /** for typedoc */
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
 	/**
 	 * Encapsulate the target (destination) state/params/options of a [[Transition]].
 	 *
@@ -37592,7 +37893,7 @@
 	//# sourceMappingURL=targetState.js.map
 
 /***/ }),
-/* 35 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -37601,10 +37902,10 @@
 	 * @coreapi
 	 * @module transition
 	 */ /** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
-	var interface_1 = __webpack_require__(32); // has or is using
-	var glob_1 = __webpack_require__(25);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
+	var interface_1 = __webpack_require__(40); // has or is using
+	var glob_1 = __webpack_require__(33);
 	/**
 	 * Determines if the given state matches the matchCriteria
 	 *
@@ -37753,7 +38054,7 @@
 	//# sourceMappingURL=hookRegistry.js.map
 
 /***/ }),
-/* 36 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -37762,10 +38063,10 @@
 	 * @module transition
 	 */ /** for typedoc */
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
-	var interface_1 = __webpack_require__(32);
-	var transitionHook_1 = __webpack_require__(33);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
+	var interface_1 = __webpack_require__(40);
+	var transitionHook_1 = __webpack_require__(41);
 	/**
 	 * This class returns applicable TransitionHooks for a specific Transition instance.
 	 *
@@ -37877,16 +38178,16 @@
 	//# sourceMappingURL=hookBuilder.js.map
 
 /***/ }),
-/* 37 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/** @module path */ /** for typedoc */
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var common_1 = __webpack_require__(21);
-	var hof_1 = __webpack_require__(23);
-	var targetState_1 = __webpack_require__(34);
-	var pathNode_1 = __webpack_require__(38);
+	var common_1 = __webpack_require__(29);
+	var hof_1 = __webpack_require__(31);
+	var targetState_1 = __webpack_require__(42);
+	var pathNode_1 = __webpack_require__(46);
 	/**
 	 * This class contains functions which convert TargetStates, Nodes and paths from one type to another.
 	 */
@@ -38055,15 +38356,15 @@
 	//# sourceMappingURL=pathFactory.js.map
 
 /***/ }),
-/* 38 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module path */ /** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var hof_1 = __webpack_require__(23);
-	var param_1 = __webpack_require__(39);
+	var common_1 = __webpack_require__(29);
+	var hof_1 = __webpack_require__(31);
+	var param_1 = __webpack_require__(47);
 	/**
 	 * @internalapi
 	 *
@@ -38137,7 +38438,7 @@
 	//# sourceMappingURL=pathNode.js.map
 
 /***/ }),
-/* 39 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -38146,11 +38447,11 @@
 	 * @coreapi
 	 * @module params
 	 */ /** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var hof_1 = __webpack_require__(23);
-	var predicates_1 = __webpack_require__(22);
-	var coreservices_1 = __webpack_require__(26);
-	var paramType_1 = __webpack_require__(40);
+	var common_1 = __webpack_require__(29);
+	var hof_1 = __webpack_require__(31);
+	var predicates_1 = __webpack_require__(30);
+	var coreservices_1 = __webpack_require__(34);
+	var paramType_1 = __webpack_require__(48);
 	/** @hidden */ var hasOwn = Object.prototype.hasOwnProperty;
 	/** @hidden */ var isShorthand = function (cfg) {
 	    return ["value", "type", "squash", "array", "dynamic"].filter(hasOwn.bind(cfg || {})).length === 0;
@@ -38340,7 +38641,7 @@
 	//# sourceMappingURL=param.js.map
 
 /***/ }),
-/* 40 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -38350,8 +38651,8 @@
 	 * @module params
 	 */
 	/** */
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
 	/**
 	 * An internal class which implements [[ParamTypeDefinition]].
 	 *
@@ -38487,7 +38788,7 @@
 	//# sourceMappingURL=paramType.js.map
 
 /***/ }),
-/* 41 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -38496,11 +38797,11 @@
 	 * @coreapi
 	 * @module resolve
 	 */ /** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var coreservices_1 = __webpack_require__(26);
-	var trace_1 = __webpack_require__(31);
-	var strings_1 = __webpack_require__(28);
-	var predicates_1 = __webpack_require__(22);
+	var common_1 = __webpack_require__(29);
+	var coreservices_1 = __webpack_require__(34);
+	var trace_1 = __webpack_require__(39);
+	var strings_1 = __webpack_require__(36);
+	var predicates_1 = __webpack_require__(30);
 	// TODO: explicitly make this user configurable
 	exports.defaultResolvePolicy = {
 	    when: "LAZY",
@@ -38625,21 +38926,21 @@
 	//# sourceMappingURL=resolvable.js.map
 
 /***/ }),
-/* 42 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module resolve */
 	/** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var hof_1 = __webpack_require__(23);
-	var trace_1 = __webpack_require__(31);
-	var coreservices_1 = __webpack_require__(26);
-	var interface_1 = __webpack_require__(43);
-	var resolvable_1 = __webpack_require__(41);
-	var pathFactory_1 = __webpack_require__(37);
-	var strings_1 = __webpack_require__(28);
+	var common_1 = __webpack_require__(29);
+	var hof_1 = __webpack_require__(31);
+	var trace_1 = __webpack_require__(39);
+	var coreservices_1 = __webpack_require__(34);
+	var interface_1 = __webpack_require__(51);
+	var resolvable_1 = __webpack_require__(49);
+	var pathFactory_1 = __webpack_require__(45);
+	var strings_1 = __webpack_require__(36);
 	var when = interface_1.resolvePolicies.when;
 	var ALL_WHENS = [when.EAGER, when.LAZY];
 	var EAGER_WHENS = [when.EAGER];
@@ -38830,7 +39131,7 @@
 	//# sourceMappingURL=resolveContext.js.map
 
 /***/ }),
-/* 43 */
+/* 51 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -38850,7 +39151,7 @@
 	//# sourceMappingURL=interface.js.map
 
 /***/ }),
-/* 44 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -38858,14 +39159,14 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	Object.defineProperty(exports, "__esModule", { value: true });
-	__export(__webpack_require__(39));
-	__export(__webpack_require__(45));
-	__export(__webpack_require__(46));
-	__export(__webpack_require__(40));
+	__export(__webpack_require__(47));
+	__export(__webpack_require__(53));
+	__export(__webpack_require__(54));
+	__export(__webpack_require__(48));
 	//# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 45 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -38875,11 +39176,11 @@
 	 * @module params
 	 */
 	/** */
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
-	var hof_1 = __webpack_require__(23);
-	var coreservices_1 = __webpack_require__(26);
-	var paramType_1 = __webpack_require__(40);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
+	var hof_1 = __webpack_require__(31);
+	var coreservices_1 = __webpack_require__(34);
+	var paramType_1 = __webpack_require__(48);
 	/**
 	 * A registry for parameter types.
 	 *
@@ -39026,7 +39327,7 @@
 	//# sourceMappingURL=paramTypes.js.map
 
 /***/ }),
-/* 46 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39036,7 +39337,7 @@
 	 * @module params
 	 */
 	/** */
-	var common_1 = __webpack_require__(21);
+	var common_1 = __webpack_require__(29);
 	/** @internalapi */
 	var StateParams = (function () {
 	    function StateParams(params) {
@@ -39075,7 +39376,7 @@
 	//# sourceMappingURL=stateParams.js.map
 
 /***/ }),
-/* 47 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39084,12 +39385,12 @@
 	}
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module path */ /** for typedoc */
-	__export(__webpack_require__(38));
-	__export(__webpack_require__(37));
+	__export(__webpack_require__(46));
+	__export(__webpack_require__(45));
 	//# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 48 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39098,13 +39399,13 @@
 	}
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module resolve */ /** for typedoc */
-	__export(__webpack_require__(43));
-	__export(__webpack_require__(41));
-	__export(__webpack_require__(42));
+	__export(__webpack_require__(51));
+	__export(__webpack_require__(49));
+	__export(__webpack_require__(50));
 	//# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 49 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39112,28 +39413,28 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	Object.defineProperty(exports, "__esModule", { value: true });
-	__export(__webpack_require__(50));
-	__export(__webpack_require__(24));
-	__export(__webpack_require__(51));
-	__export(__webpack_require__(52));
-	__export(__webpack_require__(53));
-	__export(__webpack_require__(54));
-	__export(__webpack_require__(34));
+	__export(__webpack_require__(58));
+	__export(__webpack_require__(32));
+	__export(__webpack_require__(59));
+	__export(__webpack_require__(60));
+	__export(__webpack_require__(61));
+	__export(__webpack_require__(62));
+	__export(__webpack_require__(42));
 	//# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 50 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module state */ /** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
-	var strings_1 = __webpack_require__(28);
-	var hof_1 = __webpack_require__(23);
-	var resolvable_1 = __webpack_require__(41);
-	var coreservices_1 = __webpack_require__(26);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
+	var strings_1 = __webpack_require__(36);
+	var hof_1 = __webpack_require__(31);
+	var resolvable_1 = __webpack_require__(49);
+	var coreservices_1 = __webpack_require__(34);
 	var parseUrl = function (url) {
 	    if (!predicates_1.isString(url))
 	        return false;
@@ -39402,14 +39703,14 @@
 	//# sourceMappingURL=stateBuilder.js.map
 
 /***/ }),
-/* 51 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module state */ /** for typedoc */
-	var predicates_1 = __webpack_require__(22);
-	var common_1 = __webpack_require__(21);
+	var predicates_1 = __webpack_require__(30);
+	var common_1 = __webpack_require__(29);
 	var StateMatcher = (function () {
 	    function StateMatcher(_states) {
 	        this._states = _states;
@@ -39470,16 +39771,16 @@
 	//# sourceMappingURL=stateMatcher.js.map
 
 /***/ }),
-/* 52 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module state */ /** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
-	var stateObject_1 = __webpack_require__(24);
-	var hof_1 = __webpack_require__(23);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
+	var stateObject_1 = __webpack_require__(32);
+	var hof_1 = __webpack_require__(31);
 	/** @internalapi */
 	var StateQueueManager = (function () {
 	    function StateQueueManager($registry, $urlRouter, states, builder, listeners) {
@@ -39567,7 +39868,7 @@
 	//# sourceMappingURL=stateQueueManager.js.map
 
 /***/ }),
-/* 53 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39576,11 +39877,11 @@
 	 * @module state
 	 */ /** for typedoc */
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var stateMatcher_1 = __webpack_require__(51);
-	var stateBuilder_1 = __webpack_require__(50);
-	var stateQueueManager_1 = __webpack_require__(52);
-	var common_1 = __webpack_require__(21);
-	var hof_1 = __webpack_require__(23);
+	var stateMatcher_1 = __webpack_require__(59);
+	var stateBuilder_1 = __webpack_require__(58);
+	var stateQueueManager_1 = __webpack_require__(60);
+	var common_1 = __webpack_require__(29);
+	var hof_1 = __webpack_require__(31);
 	var StateRegistry = (function () {
 	    /** @internalapi */
 	    function StateRegistry(_router) {
@@ -39728,7 +40029,7 @@
 	//# sourceMappingURL=stateRegistry.js.map
 
 /***/ }),
-/* 54 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -39738,20 +40039,20 @@
 	 * @module state
 	 */
 	/** */
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
-	var queue_1 = __webpack_require__(27);
-	var coreservices_1 = __webpack_require__(26);
-	var pathFactory_1 = __webpack_require__(37);
-	var pathNode_1 = __webpack_require__(38);
-	var transitionService_1 = __webpack_require__(55);
-	var rejectFactory_1 = __webpack_require__(29);
-	var targetState_1 = __webpack_require__(34);
-	var param_1 = __webpack_require__(39);
-	var glob_1 = __webpack_require__(25);
-	var resolveContext_1 = __webpack_require__(42);
-	var lazyLoad_1 = __webpack_require__(71);
-	var hof_1 = __webpack_require__(23);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
+	var queue_1 = __webpack_require__(35);
+	var coreservices_1 = __webpack_require__(34);
+	var pathFactory_1 = __webpack_require__(45);
+	var pathNode_1 = __webpack_require__(46);
+	var transitionService_1 = __webpack_require__(63);
+	var rejectFactory_1 = __webpack_require__(37);
+	var targetState_1 = __webpack_require__(42);
+	var param_1 = __webpack_require__(47);
+	var glob_1 = __webpack_require__(33);
+	var resolveContext_1 = __webpack_require__(50);
+	var lazyLoad_1 = __webpack_require__(79);
+	var hof_1 = __webpack_require__(31);
 	/**
 	 * Provides state related service functions
 	 *
@@ -40306,7 +40607,7 @@
 	//# sourceMappingURL=stateService.js.map
 
 /***/ }),
-/* 55 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40316,24 +40617,24 @@
 	 * @module transition
 	 */
 	/** for typedoc */
-	var interface_1 = __webpack_require__(32);
-	var transition_1 = __webpack_require__(30);
-	var hookRegistry_1 = __webpack_require__(35);
-	var coreResolvables_1 = __webpack_require__(56);
-	var redirectTo_1 = __webpack_require__(65);
-	var onEnterExitRetain_1 = __webpack_require__(66);
-	var resolve_1 = __webpack_require__(67);
-	var views_1 = __webpack_require__(68);
-	var updateGlobals_1 = __webpack_require__(69);
-	var url_1 = __webpack_require__(70);
-	var lazyLoad_1 = __webpack_require__(71);
-	var transitionEventType_1 = __webpack_require__(72);
-	var transitionHook_1 = __webpack_require__(33);
-	var predicates_1 = __webpack_require__(22);
-	var common_1 = __webpack_require__(21);
-	var hof_1 = __webpack_require__(23);
-	var ignoredTransition_1 = __webpack_require__(73);
-	var invalidTransition_1 = __webpack_require__(74);
+	var interface_1 = __webpack_require__(40);
+	var transition_1 = __webpack_require__(38);
+	var hookRegistry_1 = __webpack_require__(43);
+	var coreResolvables_1 = __webpack_require__(64);
+	var redirectTo_1 = __webpack_require__(73);
+	var onEnterExitRetain_1 = __webpack_require__(74);
+	var resolve_1 = __webpack_require__(75);
+	var views_1 = __webpack_require__(76);
+	var updateGlobals_1 = __webpack_require__(77);
+	var url_1 = __webpack_require__(78);
+	var lazyLoad_1 = __webpack_require__(79);
+	var transitionEventType_1 = __webpack_require__(80);
+	var transitionHook_1 = __webpack_require__(41);
+	var predicates_1 = __webpack_require__(30);
+	var common_1 = __webpack_require__(29);
+	var hof_1 = __webpack_require__(31);
+	var ignoredTransition_1 = __webpack_require__(81);
+	var invalidTransition_1 = __webpack_require__(82);
 	/**
 	 * The default [[Transition]] options.
 	 *
@@ -40550,14 +40851,14 @@
 	//# sourceMappingURL=transitionService.js.map
 
 /***/ }),
-/* 56 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module hooks */ /** */
-	var transition_1 = __webpack_require__(30);
-	var router_1 = __webpack_require__(57);
+	var transition_1 = __webpack_require__(38);
+	var router_1 = __webpack_require__(65);
 	function addCoreResolvables(trans) {
 	    trans.addResolvable({ token: router_1.UIRouter, deps: [], resolveFn: function () { return trans.router; }, data: trans.router }, "");
 	    trans.addResolvable({ token: transition_1.Transition, deps: [], resolveFn: function () { return trans; }, data: trans }, "");
@@ -40573,7 +40874,7 @@
 	//# sourceMappingURL=coreResolvables.js.map
 
 /***/ }),
-/* 57 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40582,17 +40883,17 @@
 	 * @coreapi
 	 * @module core
 	 */ /** */
-	var urlMatcherFactory_1 = __webpack_require__(58);
-	var urlRouter_1 = __webpack_require__(60);
-	var transitionService_1 = __webpack_require__(55);
-	var view_1 = __webpack_require__(62);
-	var stateRegistry_1 = __webpack_require__(53);
-	var stateService_1 = __webpack_require__(54);
-	var globals_1 = __webpack_require__(63);
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
-	var urlService_1 = __webpack_require__(64);
-	var trace_1 = __webpack_require__(31);
+	var urlMatcherFactory_1 = __webpack_require__(66);
+	var urlRouter_1 = __webpack_require__(68);
+	var transitionService_1 = __webpack_require__(63);
+	var view_1 = __webpack_require__(70);
+	var stateRegistry_1 = __webpack_require__(61);
+	var stateService_1 = __webpack_require__(62);
+	var globals_1 = __webpack_require__(71);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
+	var urlService_1 = __webpack_require__(72);
+	var trace_1 = __webpack_require__(39);
 	/** @hidden */
 	var _routerInstance = 0;
 	/**
@@ -40762,7 +41063,7 @@
 	//# sourceMappingURL=router.js.map
 
 /***/ }),
-/* 58 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40771,11 +41072,11 @@
 	 * @internalapi
 	 * @module url
 	 */ /** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
-	var urlMatcher_1 = __webpack_require__(59);
-	var param_1 = __webpack_require__(39);
-	var paramTypes_1 = __webpack_require__(45);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
+	var urlMatcher_1 = __webpack_require__(67);
+	var param_1 = __webpack_require__(47);
+	var paramTypes_1 = __webpack_require__(53);
 	/**
 	 * Factory for [[UrlMatcher]] instances.
 	 *
@@ -40894,7 +41195,7 @@
 	//# sourceMappingURL=urlMatcherFactory.js.map
 
 /***/ }),
-/* 59 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -40904,11 +41205,11 @@
 	 * @module url
 	 */
 	/** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var hof_1 = __webpack_require__(23);
-	var predicates_1 = __webpack_require__(22);
-	var param_1 = __webpack_require__(39);
-	var strings_1 = __webpack_require__(28);
+	var common_1 = __webpack_require__(29);
+	var hof_1 = __webpack_require__(31);
+	var predicates_1 = __webpack_require__(30);
+	var param_1 = __webpack_require__(47);
+	var strings_1 = __webpack_require__(36);
 	/** @hidden */
 	function quoteRegExp(string, param) {
 	    var surroundPattern = ['', ''], result = string.replace(/[\\\[\]\^$*+?.()|{}]/g, "\\$&");
@@ -41402,7 +41703,7 @@
 	//# sourceMappingURL=urlMatcher.js.map
 
 /***/ }),
-/* 60 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -41412,12 +41713,12 @@
 	 * @module url
 	 */
 	/** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var predicates_1 = __webpack_require__(22);
-	var urlMatcher_1 = __webpack_require__(59);
-	var hof_1 = __webpack_require__(23);
-	var urlRule_1 = __webpack_require__(61);
-	var targetState_1 = __webpack_require__(34);
+	var common_1 = __webpack_require__(29);
+	var predicates_1 = __webpack_require__(30);
+	var urlMatcher_1 = __webpack_require__(67);
+	var hof_1 = __webpack_require__(31);
+	var urlRule_1 = __webpack_require__(69);
+	var targetState_1 = __webpack_require__(42);
 	/** @hidden */
 	function appendBasePath(url, isHtml5, absolute, baseHref) {
 	    if (baseHref === '/')
@@ -41680,7 +41981,7 @@
 	//# sourceMappingURL=urlRouter.js.map
 
 /***/ }),
-/* 61 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -41689,10 +41990,10 @@
 	 * @coreapi
 	 * @module url
 	 */ /** */
-	var urlMatcher_1 = __webpack_require__(59);
-	var predicates_1 = __webpack_require__(22);
-	var common_1 = __webpack_require__(21);
-	var hof_1 = __webpack_require__(23);
+	var urlMatcher_1 = __webpack_require__(67);
+	var predicates_1 = __webpack_require__(30);
+	var common_1 = __webpack_require__(29);
+	var hof_1 = __webpack_require__(31);
 	/**
 	 * Creates a [[UrlRule]]
 	 *
@@ -41894,7 +42195,7 @@
 	//# sourceMappingURL=urlRule.js.map
 
 /***/ }),
-/* 62 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -41903,10 +42204,10 @@
 	 * @coreapi
 	 * @module view
 	 */ /** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var hof_1 = __webpack_require__(23);
-	var predicates_1 = __webpack_require__(22);
-	var trace_1 = __webpack_require__(31);
+	var common_1 = __webpack_require__(29);
+	var hof_1 = __webpack_require__(31);
+	var predicates_1 = __webpack_require__(30);
+	var trace_1 = __webpack_require__(39);
 	/**
 	 * The View service
 	 *
@@ -42182,7 +42483,7 @@
 	//# sourceMappingURL=view.js.map
 
 /***/ }),
-/* 63 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42191,8 +42492,8 @@
 	 * @coreapi
 	 * @module core
 	 */ /** */
-	var stateParams_1 = __webpack_require__(46);
-	var queue_1 = __webpack_require__(27);
+	var stateParams_1 = __webpack_require__(54);
+	var queue_1 = __webpack_require__(35);
 	/**
 	 * Global router state
 	 *
@@ -42225,7 +42526,7 @@
 	//# sourceMappingURL=globals.js.map
 
 /***/ }),
-/* 64 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42234,8 +42535,8 @@
 	 * @module url
 	 */ /** */
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var coreservices_1 = __webpack_require__(26);
-	var common_1 = __webpack_require__(21);
+	var coreservices_1 = __webpack_require__(34);
+	var common_1 = __webpack_require__(29);
 	/** @hidden */
 	var makeStub = function (keys) {
 	    return keys.reduce(function (acc, key) { return (acc[key] = coreservices_1.notImplemented(key), acc); }, { dispose: common_1.noop });
@@ -42310,15 +42611,15 @@
 	//# sourceMappingURL=urlService.js.map
 
 /***/ }),
-/* 65 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module hooks */ /** */
-	var predicates_1 = __webpack_require__(22);
-	var coreservices_1 = __webpack_require__(26);
-	var targetState_1 = __webpack_require__(34);
+	var predicates_1 = __webpack_require__(30);
+	var coreservices_1 = __webpack_require__(34);
+	var targetState_1 = __webpack_require__(42);
 	/**
 	 * A [[TransitionHookFn]] that redirects to a different state or params
 	 *
@@ -42352,7 +42653,7 @@
 	//# sourceMappingURL=redirectTo.js.map
 
 /***/ }),
-/* 66 */
+/* 74 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -42414,16 +42715,16 @@
 	//# sourceMappingURL=onEnterExitRetain.js.map
 
 /***/ }),
-/* 67 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module hooks */
 	/** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var resolveContext_1 = __webpack_require__(42);
-	var hof_1 = __webpack_require__(23);
+	var common_1 = __webpack_require__(29);
+	var resolveContext_1 = __webpack_require__(50);
+	var hof_1 = __webpack_require__(31);
 	/**
 	 * A [[TransitionHookFn]] which resolves all EAGER Resolvables in the To Path
 	 *
@@ -42462,14 +42763,14 @@
 	//# sourceMappingURL=resolve.js.map
 
 /***/ }),
-/* 68 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module hooks */ /** for typedoc */
-	var common_1 = __webpack_require__(21);
-	var coreservices_1 = __webpack_require__(26);
+	var common_1 = __webpack_require__(29);
+	var coreservices_1 = __webpack_require__(34);
 	/**
 	 * A [[TransitionHookFn]] which waits for the views to load
 	 *
@@ -42514,12 +42815,12 @@
 	//# sourceMappingURL=views.js.map
 
 /***/ }),
-/* 69 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var common_1 = __webpack_require__(21);
+	var common_1 = __webpack_require__(29);
 	/**
 	 * A [[TransitionHookFn]] which updates global UI-Router state
 	 *
@@ -42554,7 +42855,7 @@
 	//# sourceMappingURL=updateGlobals.js.map
 
 /***/ }),
-/* 70 */
+/* 78 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -42584,12 +42885,12 @@
 	//# sourceMappingURL=url.js.map
 
 /***/ }),
-/* 71 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var coreservices_1 = __webpack_require__(26);
+	var coreservices_1 = __webpack_require__(34);
 	/**
 	 * A [[TransitionHookFn]] that performs lazy loading
 	 *
@@ -42686,12 +42987,12 @@
 	//# sourceMappingURL=lazyLoad.js.map
 
 /***/ }),
-/* 72 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var transitionHook_1 = __webpack_require__(33);
+	var transitionHook_1 = __webpack_require__(41);
 	/**
 	 * This class defines a type of hook, such as `onBefore` or `onEnter`.
 	 * Plugins can define custom hook types, such as sticky states does for `onInactive`.
@@ -42719,14 +43020,14 @@
 	//# sourceMappingURL=transitionEventType.js.map
 
 /***/ }),
-/* 73 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/** @module hooks */ /** */
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var trace_1 = __webpack_require__(31);
-	var rejectFactory_1 = __webpack_require__(29);
+	var trace_1 = __webpack_require__(39);
+	var rejectFactory_1 = __webpack_require__(37);
 	/**
 	 * A [[TransitionHookFn]] that skips a transition if it should be ignored
 	 *
@@ -42755,7 +43056,7 @@
 	//# sourceMappingURL=ignoredTransition.js.map
 
 /***/ }),
-/* 74 */
+/* 82 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -42779,7 +43080,7 @@
 	//# sourceMappingURL=invalidTransition.js.map
 
 /***/ }),
-/* 75 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42801,18 +43102,34 @@
 	 * @preferred
 	 * @module transition
 	 */ /** for typedoc */
-	__export(__webpack_require__(32));
-	__export(__webpack_require__(36));
-	__export(__webpack_require__(35));
-	__export(__webpack_require__(29));
-	__export(__webpack_require__(30));
-	__export(__webpack_require__(33));
+	__export(__webpack_require__(40));
+	__export(__webpack_require__(44));
+	__export(__webpack_require__(43));
+	__export(__webpack_require__(37));
+	__export(__webpack_require__(38));
+	__export(__webpack_require__(41));
+	__export(__webpack_require__(80));
+	__export(__webpack_require__(63));
+	//# sourceMappingURL=index.js.map
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
+	Object.defineProperty(exports, "__esModule", { value: true });
+	__export(__webpack_require__(67));
+	__export(__webpack_require__(66));
+	__export(__webpack_require__(68));
+	__export(__webpack_require__(69));
 	__export(__webpack_require__(72));
-	__export(__webpack_require__(55));
 	//# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 76 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42820,27 +43137,11 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	Object.defineProperty(exports, "__esModule", { value: true });
-	__export(__webpack_require__(59));
-	__export(__webpack_require__(58));
-	__export(__webpack_require__(60));
-	__export(__webpack_require__(61));
-	__export(__webpack_require__(64));
+	__export(__webpack_require__(70));
 	//# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-	function __export(m) {
-	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
-	}
-	Object.defineProperty(exports, "__esModule", { value: true });
-	__export(__webpack_require__(62));
-	//# sourceMappingURL=index.js.map
-
-/***/ }),
-/* 78 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42853,11 +43154,11 @@
 	 * @module vanilla
 	 */
 	/** */
-	__export(__webpack_require__(79));
+	__export(__webpack_require__(87));
 	//# sourceMappingURL=vanilla.js.map
 
 /***/ }),
-/* 79 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42865,20 +43166,20 @@
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	Object.defineProperty(exports, "__esModule", { value: true });
-	__export(__webpack_require__(80));
-	__export(__webpack_require__(81));
-	__export(__webpack_require__(82));
-	__export(__webpack_require__(84));
-	__export(__webpack_require__(85));
-	__export(__webpack_require__(86));
-	__export(__webpack_require__(87));
 	__export(__webpack_require__(88));
-	__export(__webpack_require__(83));
 	__export(__webpack_require__(89));
+	__export(__webpack_require__(90));
+	__export(__webpack_require__(92));
+	__export(__webpack_require__(93));
+	__export(__webpack_require__(94));
+	__export(__webpack_require__(95));
+	__export(__webpack_require__(96));
+	__export(__webpack_require__(91));
+	__export(__webpack_require__(97));
 	//# sourceMappingURL=index.js.map
 
 /***/ }),
-/* 80 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42888,7 +43189,7 @@
 	 * @module vanilla
 	 */
 	/** */
-	var index_1 = __webpack_require__(20);
+	var index_1 = __webpack_require__(28);
 	/**
 	 * An angular1-like promise api
 	 *
@@ -42938,7 +43239,7 @@
 	//# sourceMappingURL=q.js.map
 
 /***/ }),
-/* 81 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -42948,7 +43249,7 @@
 	 * @module vanilla
 	 */
 	/** */
-	var index_1 = __webpack_require__(20);
+	var index_1 = __webpack_require__(28);
 	// globally available injectables
 	var globals = {};
 	var STRIP_COMMENTS = /((\/\/.*$)|(\/\*[\s\S]*?\*\/))/mg;
@@ -43043,7 +43344,7 @@
 	//# sourceMappingURL=injector.js.map
 
 /***/ }),
-/* 82 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -43052,9 +43353,9 @@
 	 * @module vanilla
 	 */ /** */
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var utils_1 = __webpack_require__(83);
-	var predicates_1 = __webpack_require__(22);
-	var common_1 = __webpack_require__(21);
+	var utils_1 = __webpack_require__(91);
+	var predicates_1 = __webpack_require__(30);
+	var common_1 = __webpack_require__(29);
 	/** A base `LocationServices` */
 	var BaseLocationServices = (function () {
 	    function BaseLocationServices(router, fireAfterUpdate) {
@@ -43093,7 +43394,7 @@
 	//# sourceMappingURL=baseLocationService.js.map
 
 /***/ }),
-/* 83 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -43103,8 +43404,8 @@
 	 * @module vanilla
 	 */
 	/** */
-	var index_1 = __webpack_require__(20);
-	var common_1 = __webpack_require__(21);
+	var index_1 = __webpack_require__(28);
+	var common_1 = __webpack_require__(29);
 	var beforeAfterSubstr = function (char) { return function (str) {
 	    if (!str)
 	        return ["", ""];
@@ -43166,7 +43467,7 @@
 	//# sourceMappingURL=utils.js.map
 
 /***/ }),
-/* 84 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -43186,8 +43487,8 @@
 	 * @module vanilla
 	 */
 	/** */
-	var utils_1 = __webpack_require__(83);
-	var baseLocationService_1 = __webpack_require__(82);
+	var utils_1 = __webpack_require__(91);
+	var baseLocationService_1 = __webpack_require__(90);
 	/** A `LocationServices` that uses the browser hash "#" to get/set the current location */
 	var HashLocationService = (function (_super) {
 	    __extends(HashLocationService, _super);
@@ -43212,7 +43513,7 @@
 	//# sourceMappingURL=hashLocationService.js.map
 
 /***/ }),
-/* 85 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -43232,7 +43533,7 @@
 	 * @module vanilla
 	 */
 	/** */
-	var baseLocationService_1 = __webpack_require__(82);
+	var baseLocationService_1 = __webpack_require__(90);
 	/** A `LocationServices` that gets/sets the current location from an in-memory object */
 	var MemoryLocationService = (function (_super) {
 	    __extends(MemoryLocationService, _super);
@@ -43251,7 +43552,7 @@
 	//# sourceMappingURL=memoryLocationService.js.map
 
 /***/ }),
-/* 86 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -43266,8 +43567,8 @@
 	    };
 	})();
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var utils_1 = __webpack_require__(83);
-	var baseLocationService_1 = __webpack_require__(82);
+	var utils_1 = __webpack_require__(91);
+	var baseLocationService_1 = __webpack_require__(90);
 	/**
 	 * A `LocationServices` that gets/sets the current location using the browser's `location` and `history` apis
 	 *
@@ -43308,13 +43609,13 @@
 	//# sourceMappingURL=pushStateLocationService.js.map
 
 /***/ }),
-/* 87 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var predicates_1 = __webpack_require__(22);
-	var common_1 = __webpack_require__(21);
+	var predicates_1 = __webpack_require__(30);
+	var common_1 = __webpack_require__(29);
 	/** A `LocationConfig` mock that gets/sets all config from an in-memory object */
 	var MemoryLocationConfig = (function () {
 	    function MemoryLocationConfig() {
@@ -43338,7 +43639,7 @@
 	//# sourceMappingURL=memoryLocationConfig.js.map
 
 /***/ }),
-/* 88 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -43348,7 +43649,7 @@
 	 * @module vanilla
 	 */
 	/** */
-	var predicates_1 = __webpack_require__(22);
+	var predicates_1 = __webpack_require__(30);
 	/** A `LocationConfig` that delegates to the browser's `location` object */
 	var BrowserLocationConfig = (function () {
 	    function BrowserLocationConfig(router, _isHtml5) {
@@ -43390,7 +43691,7 @@
 	//# sourceMappingURL=browserLocationConfig.js.map
 
 /***/ }),
-/* 89 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -43400,15 +43701,15 @@
 	 * @module vanilla
 	 */
 	/** */
-	var browserLocationConfig_1 = __webpack_require__(88);
-	var hashLocationService_1 = __webpack_require__(84);
-	var utils_1 = __webpack_require__(83);
-	var pushStateLocationService_1 = __webpack_require__(86);
-	var memoryLocationService_1 = __webpack_require__(85);
-	var memoryLocationConfig_1 = __webpack_require__(87);
-	var injector_1 = __webpack_require__(81);
-	var q_1 = __webpack_require__(80);
-	var coreservices_1 = __webpack_require__(26);
+	var browserLocationConfig_1 = __webpack_require__(96);
+	var hashLocationService_1 = __webpack_require__(92);
+	var utils_1 = __webpack_require__(91);
+	var pushStateLocationService_1 = __webpack_require__(94);
+	var memoryLocationService_1 = __webpack_require__(93);
+	var memoryLocationConfig_1 = __webpack_require__(95);
+	var injector_1 = __webpack_require__(89);
+	var q_1 = __webpack_require__(88);
+	var coreservices_1 = __webpack_require__(34);
 	function servicesPlugin(router) {
 	    coreservices_1.services.$injector = injector_1.$injector;
 	    coreservices_1.services.$q = q_1.$q;
@@ -43424,7 +43725,7 @@
 	//# sourceMappingURL=plugins.js.map
 
 /***/ }),
-/* 90 */
+/* 98 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -43450,7 +43751,7 @@
 	//# sourceMappingURL=interface.js.map
 
 /***/ }),
-/* 91 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -43467,14 +43768,14 @@
 	 * @preferred
 	 */
 	/** for typedoc */
-	var angular_1 = __webpack_require__(92);
-	var core_1 = __webpack_require__(19);
-	var views_1 = __webpack_require__(93);
-	var templateFactory_1 = __webpack_require__(94);
-	var stateProvider_1 = __webpack_require__(95);
-	var onEnterExitRetain_1 = __webpack_require__(96);
-	var locationServices_1 = __webpack_require__(97);
-	var urlRouterProvider_1 = __webpack_require__(98);
+	var angular_1 = __webpack_require__(100);
+	var core_1 = __webpack_require__(27);
+	var views_1 = __webpack_require__(101);
+	var templateFactory_1 = __webpack_require__(102);
+	var stateProvider_1 = __webpack_require__(103);
+	var onEnterExitRetain_1 = __webpack_require__(104);
+	var locationServices_1 = __webpack_require__(105);
+	var urlRouterProvider_1 = __webpack_require__(106);
 	angular_1.ng.module("ui.router.angular1", []);
 	var mod_init = angular_1.ng.module('ui.router.init', []);
 	var mod_util = angular_1.ng.module('ui.router.util', ['ng', 'ui.router.init']);
@@ -43571,7 +43872,7 @@
 	//# sourceMappingURL=services.js.map
 
 /***/ }),
-/* 92 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -43582,12 +43883,12 @@
 	//# sourceMappingURL=angular.js.map
 
 /***/ }),
-/* 93 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var core_1 = __webpack_require__(19);
+	var core_1 = __webpack_require__(27);
 	function getNg1ViewConfigFactory() {
 	    var templateFactory = null;
 	    return function (path, view) {
@@ -43696,15 +43997,15 @@
 	//# sourceMappingURL=views.js.map
 
 /***/ }),
-/* 94 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module view */
 	/** for typedoc */
-	var angular_1 = __webpack_require__(92);
-	var core_1 = __webpack_require__(19);
+	var angular_1 = __webpack_require__(100);
+	var core_1 = __webpack_require__(27);
 	/**
 	 * Service which manages loading of templates from a ViewConfig.
 	 */
@@ -43895,13 +44196,13 @@
 	//# sourceMappingURL=templateFactory.js.map
 
 /***/ }),
-/* 95 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module ng1 */ /** for typedoc */
-	var core_1 = __webpack_require__(19);
+	var core_1 = __webpack_require__(27);
 	/**
 	 * The Angular 1 `StateProvider`
 	 *
@@ -44040,14 +44341,14 @@
 	//# sourceMappingURL=stateProvider.js.map
 
 /***/ }),
-/* 96 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module ng1 */ /** */
-	var core_1 = __webpack_require__(19);
-	var services_1 = __webpack_require__(91);
+	var core_1 = __webpack_require__(27);
+	var services_1 = __webpack_require__(99);
 	/**
 	 * This is a [[StateBuilder.builder]] function for angular1 `onEnter`, `onExit`,
 	 * `onRetain` callback hooks on a [[Ng1StateDeclaration]].
@@ -44070,12 +44371,12 @@
 	//# sourceMappingURL=onEnterExitRetain.js.map
 
 /***/ }),
-/* 97 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var core_1 = __webpack_require__(19);
+	var core_1 = __webpack_require__(27);
 	/**
 	 * Implements UI-Router LocationServices and LocationConfig using Angular 1's $location service
 	 */
@@ -44150,14 +44451,14 @@
 	//# sourceMappingURL=locationServices.js.map
 
 /***/ }),
-/* 98 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module url */ /** */
-	var core_1 = __webpack_require__(19);
-	var core_2 = __webpack_require__(19);
+	var core_1 = __webpack_require__(27);
+	var core_2 = __webpack_require__(27);
 	/**
 	 * Manages rules for client-side URL
 	 *
@@ -44361,7 +44662,7 @@
 	//# sourceMappingURL=urlRouterProvider.js.map
 
 /***/ }),
-/* 99 */
+/* 107 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -44734,7 +45035,7 @@
 	//# sourceMappingURL=injectables.js.map
 
 /***/ }),
-/* 100 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -44749,8 +45050,8 @@
 	 * @preferred
 	 * @module directives
 	 */ /** for typedoc */
-	var angular_1 = __webpack_require__(92);
-	var core_1 = __webpack_require__(19);
+	var angular_1 = __webpack_require__(100);
+	var core_1 = __webpack_require__(27);
 	/** @hidden */
 	function parseStateRef(ref) {
 	    var paramsOnly = ref.match(/^\s*({[^}]*})\s*$/), parsed;
@@ -45310,13 +45611,13 @@
 	//# sourceMappingURL=stateDirectives.js.map
 
 /***/ }),
-/* 101 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	/** @module ng1 */ /** for typedoc */
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var angular_1 = __webpack_require__(92);
+	var angular_1 = __webpack_require__(100);
 	/**
 	 * `isState` Filter: truthy if the current state is the parameter
 	 *
@@ -45361,7 +45662,7 @@
 	//# sourceMappingURL=stateFilters.js.map
 
 /***/ }),
-/* 102 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -45370,11 +45671,11 @@
 	 * @ng1api
 	 * @module directives
 	 */ /** for typedoc */
-	var angular_1 = __webpack_require__(92);
+	var angular_1 = __webpack_require__(100);
 	var angular_2 = __webpack_require__(1);
-	var core_1 = __webpack_require__(19);
-	var views_1 = __webpack_require__(93);
-	var services_1 = __webpack_require__(91);
+	var core_1 = __webpack_require__(27);
+	var views_1 = __webpack_require__(101);
+	var services_1 = __webpack_require__(99);
 	exports.uiView = ['$view', '$animate', '$uiViewScroll', '$interpolate', '$q',
 	    function $ViewDirective($view, $animate, $uiViewScroll, $interpolate, $q) {
 	        function getRenderer(attrs, scope) {
@@ -45656,13 +45957,13 @@
 	//# sourceMappingURL=viewDirective.js.map
 
 /***/ }),
-/* 103 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	/** @module ng1 */ /** */
-	var angular_1 = __webpack_require__(92);
+	var angular_1 = __webpack_require__(100);
 	/** @hidden */
 	function $ViewScrollProvider() {
 	    var useAnchorScroll = false;
@@ -45684,7 +45985,7 @@
 	//# sourceMappingURL=viewScroll.js.map
 
 /***/ }),
-/* 104 */
+/* 112 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -45704,25 +46005,39 @@
 	        component: 'home'
 	    });
 	
-	    // $stateProvider.state({
-	    //     name: 'test',
-	    //     url: '/test',
-	    //     data: { public: true },
-	    //     component: 'test' 
-	    // });
+	    $stateProvider.state({
+	        name: 'projects',
+	        url: '/projects',
+	        data: { public: true },
+	        component: 'projects'
+	    });
 	
-	    // $stateProvider.state({
-	    //     name: 'about',
-	    //     url: '/about',
-	    //     data: { public: true },
-	    //     component: 'about' 
-	    // });
+	    $stateProvider.state({
+	        name: 'bio',
+	        url: '/bio',
+	        data: { public: true },
+	        component: 'bio'
+	    });
+	
+	    $stateProvider.state({
+	        name: 'resume',
+	        url: '/resume',
+	        data: { public: true },
+	        component: 'resume'
+	    });
+	
+	    $stateProvider.state({
+	        name: 'contact',
+	        url: '/contact',
+	        data: { public: true },
+	        component: 'contact'
+	    });
 	
 	    $urlRouterProvider.otherwise('/');
 	}
 
 /***/ }),
-/* 105 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**

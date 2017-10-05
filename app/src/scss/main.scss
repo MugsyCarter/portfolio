@@ -38,14 +38,25 @@ td, th{
 }
 // home page stuff
 
+.title-holder{
+  position: absolute;
+  top: 40vh;
+  padding: 1vw 15vw;
+  left: 15vw;
+  align-content: center;
+  background-color: white;
+  box-shadow: 0.1vw 0.5vw 0.5vw #888888;
+}
 .title{
-  font-size: 12vh;
-  margin: 4vh;  
+  font-size: 8vh;
+  margin: 0vh;
+  padding: 0vh;   
   color: $blue;
+  z-index: 1;
 }
 
 .subtitle{
-  font-size: 8vh;
+  font-size: 5vh;
 }
 
 .section-block{
@@ -53,11 +64,11 @@ td, th{
   width: 50vw;
   height: 50vh;
   cursor: pointer;
-  align-content: center;
+  z-index: -1;
 }
 
 .section-label{
-  font-size: 10vh;
+  font-size: 8vh;
   color: white;
 }
 
@@ -67,6 +78,8 @@ td, th{
 }
 #projects-section-label{
   color: $blue;
+  top: 10vh;
+  left: 10vh;
 }
 
 #bio-block{
@@ -77,10 +90,13 @@ td, th{
 
 #bio-section-label{
   color: white;
+    top: 10vh;
+    right: 10vh;
 }
 
 #resume-block{
-  background-color: white;
+  background-color: $green;
+  bottom: 0vh;
 }
 
 #resume-section-label{
@@ -88,12 +104,13 @@ td, th{
 }
 
 #contact-block{
+  bottom: 0vh;
   right: 0vh;
   background-color: $yellow;
 }
 
 #contact-section-label{
-  color: $blue;
+  color: white;
 }
 
 
