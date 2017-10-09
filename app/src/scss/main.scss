@@ -2,7 +2,7 @@
 @import 'buttons';
 
 * {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-align: center; 
   color: $blue;
   box-sizing: border-box;
@@ -15,6 +15,7 @@ a{
   &:hover{
     cursor: pointer;
     color:$blue;
+    font-size: 20vh;
   }
 }
 
@@ -40,15 +41,15 @@ td, th{
 
 .title-holder{
   position: absolute;
-  top: 40vh;
-  padding: 1vw 15vw;
-  left: 15vw;
+  top: 45%;
+  padding: 1vw 1vw;
+  left: 0vh;
   align-content: center;
   background-color: white;
   box-shadow: 0.1vw 0.5vw 0.5vw #888888;
 }
 .title{
-  font-size: 8vh;
+  font-size: 5vh;
   margin: 0vh;
   padding: 0vh;   
   color: $blue;
@@ -65,10 +66,13 @@ td, th{
   height: 50vh;
   cursor: pointer;
   z-index: -1;
+  &:hover{
+    background: darken($blue, 3);
+  }
 }
 
 .section-label{
-  font-size: 8vh;
+  font-size: 5vh;
   color: white;
 }
 
@@ -119,7 +123,7 @@ td, th{
 .featured-project{
   width: 80vw;
   box-shadow: 1vw 0.1vw 1vw #888888;
-  margin: 10vw;
+  margin: 0vw 10vw;
 }
 
 .featured-project-image{
@@ -172,10 +176,10 @@ li {
   align-items: stretch;
   padding: 20px;
   background:$blue;
-  cursor: pointer;
   transition: all 2.5s ease;
   &:hover {
-    background: darken($blue, 3);
+    background: darken($blue, 8);
+    cursor: pointer;
   }
   &.clickedProject {
     flex: 5;
@@ -323,32 +327,28 @@ a.before:hover:before,a.after:hover:after{
 
 
 
-//test page
+@media only screen and (min-width: 1000px) {
+  /* Minor styling: larger image and fonts to match largest screen size */
+  .link{
+  padding: 1% 1%;
+}
 
-.question-text{
+.icon-menu {
+  font-size: 3.6vh;
+}
+
+.title-holder{
+  top: 40vh;
+  padding: 1vw 15vw;
+  left: 15vw;
+}
+.title{
   font-size: 8vh;
 }
-#answer-button{
-  font-size: 4vh;
+
+.section-label{
+  font-size: 8vh;
 }
-
-
-//footer 
-
-//about page stuff
-.about-title{
-  font-size: 10vh;
-}
-
-@media only screen and (min-width: 1600px) {
-  /* Minor styling: larger image and fonts to match largest screen size */
-   .link{
-    padding: 1% 1%;
-  }
-
-  .icon-menu {
-    font-size: 3.6vh;
-  }
 
 }
 
