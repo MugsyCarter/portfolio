@@ -26,12 +26,16 @@ td, th{
 
 // navbar and app stuff 
 .main-nav{
+  top: 0vh;
+  max-height: 5vw;
 }
 
 .link{
+  top: 0vh;
   display: inline-block;
   color: $blue;
-  padding: 0 5vw 0 5vw; 
+  padding: 0 5vw 0 5vw;
+  max-height: 8vh; 
 }
 
 .active-link{
@@ -68,6 +72,7 @@ td, th{
   z-index: -1;
   &:hover{
     background: darken($blue, 3);
+    color: black;
   }
 }
 
@@ -79,6 +84,9 @@ td, th{
 #projects-block{
   top: 0vh;
   background-color: pink;
+  &:hover{
+    background: darken(pink, 5%);
+  }
 }
 #projects-section-label{
   color: $blue;
@@ -90,6 +98,9 @@ td, th{
   top: 0vh;
   right: 0vh;
   background-color: $blue;
+  &:hover{
+    background: darken($blue, 5%);
+  }
 }
 
 #bio-section-label{
@@ -101,6 +112,9 @@ td, th{
 #resume-block{
   background-color: $green;
   bottom: 0vh;
+  &:hover{
+    background: darken($green, 5%);
+  }
 }
 
 #resume-section-label{
@@ -111,6 +125,9 @@ td, th{
   bottom: 0vh;
   right: 0vh;
   background-color: $yellow;
+  &:hover{
+    background: darken($yellow, 5%);
+  }
 }
 
 #contact-section-label{
@@ -324,7 +341,11 @@ a.before:hover:before,a.after:hover:after{
   width:100%;
 }
 
+//resume
 
+.resume{
+  all: none;
+}
 
 
 @media only screen and (min-width: 1000px) {

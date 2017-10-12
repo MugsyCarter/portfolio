@@ -18,7 +18,7 @@ button:hover {
   box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
 * {
-  font-family: 'Dosis', sans-serif;
+  font-family: 'Roboto', sans-serif;
   text-align: center;
   color: #012a36;
   box-sizing: border-box; }
@@ -28,31 +28,38 @@ a {
   padding: 1vw; }
   a:hover {
     cursor: pointer;
-    color: #012a36; }
+    color: #012a36;
+    font-size: 20vh; }
 
 td, th {
   padding: none;
   margin: none; }
 
+.main-nav {
+  top: 0vh;
+  max-height: 5vw; }
+
 .link {
+  top: 0vh;
   display: inline-block;
   color: #012a36;
-  padding: 0 5vw 0 5vw; }
+  padding: 0 5vw 0 5vw;
+  max-height: 8vh; }
 
 .active-link {
   color: #e6af2e; }
 
 .title-holder {
   position: absolute;
-  top: 40vh;
-  padding: 1vw 15vw;
-  left: 15vw;
+  top: 45%;
+  padding: 1vw 1vw;
+  left: 0vh;
   align-content: center;
   background-color: white;
   box-shadow: 0.1vw 0.5vw 0.5vw #888888; }
 
 .title {
-  font-size: 8vh;
+  font-size: 5vh;
   margin: 0vh;
   padding: 0vh;
   color: #012a36;
@@ -67,14 +74,19 @@ td, th {
   height: 50vh;
   cursor: pointer;
   z-index: -1; }
+  .section-block:hover {
+    background: #011e27;
+    color: black; }
 
 .section-label {
-  font-size: 8vh;
+  font-size: 5vh;
   color: white; }
 
 #projects-block {
   top: 0vh;
   background-color: pink; }
+  #projects-block:hover {
+    background: #ffa7b6; }
 
 #projects-section-label {
   color: #012a36;
@@ -85,6 +97,8 @@ td, th {
   top: 0vh;
   right: 0vh;
   background-color: #012a36; }
+  #bio-block:hover {
+    background: #01171d; }
 
 #bio-section-label {
   color: white;
@@ -94,6 +108,8 @@ td, th {
 #resume-block {
   background-color: #8aea92;
   bottom: 0vh; }
+  #resume-block:hover {
+    background: #74e67e; }
 
 #resume-section-label {
   color: #012a36; }
@@ -102,6 +118,8 @@ td, th {
   bottom: 0vh;
   right: 0vh;
   background-color: #e6af2e; }
+  #contact-block:hover {
+    background: #e0a51b; }
 
 #contact-section-label {
   color: white; }
@@ -109,7 +127,7 @@ td, th {
 .featured-project {
   width: 80vw;
   box-shadow: 1vw 0.1vw 1vw #888888;
-  margin: 10vw; }
+  margin: 0vw 10vw; }
 
 .featured-project-image {
   width: 60vw;
@@ -134,10 +152,10 @@ li {
   align-items: stretch;
   padding: 20px;
   background: #012a36;
-  cursor: pointer;
   transition: all 2.5s ease; }
   li:hover {
-    background: #011e27; }
+    background: #000b0e;
+    cursor: pointer; }
   li.clickedProject {
     flex: 5;
     background: white;
@@ -265,20 +283,22 @@ a.before:hover:before, a.after:hover:after {
 .square:hover a:before, .square:hover a:after {
   width: 100%; }
 
-.question-text {
-  font-size: 8vh; }
+.resume {
+  all: none; }
 
-#answer-button {
-  font-size: 4vh; }
-
-.about-title {
-  font-size: 10vh; }
-
-@media only screen and (min-width: 1600px) {
+@media only screen and (min-width: 1000px) {
   /* Minor styling: larger image and fonts to match largest screen size */
   .link {
     padding: 1% 1%; }
   .icon-menu {
-    font-size: 3.6vh; } }
+    font-size: 3.6vh; }
+  .title-holder {
+    top: 40vh;
+    padding: 1vw 15vw;
+    left: 15vw; }
+  .title {
+    font-size: 8vh; }
+  .section-label {
+    font-size: 8vh; } }
 
 /*# sourceMappingURL=main.css.map*/
