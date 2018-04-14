@@ -2,12 +2,11 @@
 @import 'buttons';
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Voltaire', sans-serif;
   text-align: center; 
   color: $blue;
   box-sizing: border-box;
 }
-
 
 a{
   text-decoration: none;
@@ -39,19 +38,19 @@ td, th{
 }
 
 .active-link{
-  color: $yellow;
+  color: $sky;
 }
 // home page stuff
 
-.title-holder{
-  position: absolute;
-  top: 45%;
-  padding: 1vw 1vw;
-  left: 0vh;
-  align-content: center;
-  background-color: white;
-  box-shadow: 0.1vw 0.5vw 0.5vw #888888;
-}
+// .title-holder{
+//   position: absolute;
+//   top: 45%;
+//   padding: 1vw 1vw;
+//   left: 0vh;
+//   align-content: center;
+//   background-color: white;
+//   box-shadow: 0.1vw 0.5vw 0.5vw #888888;
+// }
 .title{
   font-size: 5vh;
   margin: 0vh;
@@ -61,77 +60,114 @@ td, th{
 }
 
 .subtitle{
+  width: 30vw;
   font-size: 5vh;
 }
+
+// #menu-block{
+//   display: block;
+//   padding: 0;
+//   width: 200px;
+//   height: 200px;
+//   border: 1px;
+//   border-radius: 50%;
+//   overflow: hidden;
+// }
+
+// #menu-row{
+//    //display: inline-block
+//    border: 1px solid black;
+//    padding-right: 5vw 0vw 5vw 5vw;
+
+// }
 
 .section-block{
   position: absolute;
-  width: 50vw;
-  height: 50vh;
+  width: 10vw;
+  height: 10vw;
   cursor: pointer;
   z-index: -1;
+  margin: 1vh 0vh 1vh 1vh; 
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   &:hover{
     background: darken($blue, 3);
     color: black;
+    //transition:height 0.5s;
+    width:12vw;
+    height: 12vw;
   }
 }
 
+.active-section{
+  width: 12vw;
+  height: 12vw;
+}
+
 .section-label{
-  font-size: 5vh;
-  color: white;
+  font-size: 4vh;
+  color: $white;
+  position: relative;
 }
 
 #projects-block{
-  top: 0vh;
-  background-color: pink;
+  background-color: $pink;
+  border-radius: 0 100% 0 0; 
+  bottom: 13vw;
+  left: 70.5vw;
   &:hover{
-    background: darken(pink, 5%);
+    background: darken($pink, 5%);
   }
 }
 #projects-section-label{
   color: $blue;
-  top: 10vh;
-  left: 10vh;
+  padding-top: 15vh;
 }
 
 #bio-block{
-  top: 0vh;
-  right: 0vh;
   background-color: $blue;
+  bottom: 13vw;
+  right: 30vw;
+  border-radius: 100% 0 0 0; 
   &:hover{
     background: darken($blue, 5%);
+
+    //transform:translateX(-50%);
   }
 }
 
 #bio-section-label{
-  color: white;
-    top: 10vh;
-    right: 10vh;
+  color: $white;
+  padding-top: 15vh;
 }
 
 #resume-block{
   background-color: $green;
-  bottom: 0vh;
+  border-radius: 0 0 100% 0; 
+  top: 15vw;
+  left: 70.5vw;
   &:hover{
     background: darken($green, 5%);
   }
 }
 
 #resume-section-label{
-  color: $blue;
+  color: $white;
 }
 
 #contact-block{
-  bottom: 0vh;
-  right: 0vh;
-  background-color: $yellow;
+  background-color: $sky;
+  border-radius: 0 0 0 100%;
+  top: 15vw;
+  right: 30vw; 
   &:hover{
-    background: darken($yellow, 5%);
+    background: darken($sky, 5%);
+    width: 12vw;
+    height: 12vw;
   }
 }
 
 #contact-section-label{
-  color: white;
+  color: $blue;
 }
 
 
@@ -265,7 +301,7 @@ a,a:visited,a:hover,a:active{
 	position:relative;
   transition:0.5s color ease;
 	text-decoration:none;
-	color:#81b3d2;
+	color:$sky;
 	font-size:3vh;
 }
 a:hover{
@@ -367,9 +403,9 @@ a.before:hover:before,a.after:hover:after{
   font-size: 8vh;
 }
 
-.section-label{
-  font-size: 8vh;
-}
+// .section-label{
+//   font-size: 8vh;
+// }
 
 }
 

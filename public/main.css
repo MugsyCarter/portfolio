@@ -12,13 +12,13 @@ button:active {
   cursor: pointer; }
 
 button:hover {
-  background-color: #e6af2e;
+  background-color: #FF9438;
   color: #012a36;
   cursor: pointer;
   box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Voltaire', sans-serif;
   text-align: center;
   color: #012a36;
   box-sizing: border-box; }
@@ -47,16 +47,7 @@ td, th {
   max-height: 8vh; }
 
 .active-link {
-  color: #e6af2e; }
-
-.title-holder {
-  position: absolute;
-  top: 45%;
-  padding: 1vw 1vw;
-  left: 0vh;
-  align-content: center;
-  background-color: white;
-  box-shadow: 0.1vw 0.5vw 0.5vw #888888; }
+  color: #8CC5D8; }
 
 .title {
   font-size: 5vh;
@@ -66,63 +57,79 @@ td, th {
   z-index: 1; }
 
 .subtitle {
+  width: 30vw;
   font-size: 5vh; }
 
 .section-block {
   position: absolute;
-  width: 50vw;
-  height: 50vh;
+  width: 10vw;
+  height: 10vw;
   cursor: pointer;
-  z-index: -1; }
+  z-index: -1;
+  margin: 1vh 0vh 1vh 1vh;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
   .section-block:hover {
     background: #011e27;
-    color: black; }
+    color: black;
+    width: 12vw;
+    height: 12vw; }
+
+.active-section {
+  width: 12vw;
+  height: 12vw; }
 
 .section-label {
-  font-size: 5vh;
-  color: white; }
+  font-size: 4vh;
+  color: #F3F7F0;
+  position: relative; }
 
 #projects-block {
-  top: 0vh;
-  background-color: pink; }
+  background-color: #FF9438;
+  border-radius: 0 100% 0 0;
+  bottom: 13vw;
+  left: 70.5vw; }
   #projects-block:hover {
-    background: #ffa7b6; }
+    background: #ff861f; }
 
 #projects-section-label {
   color: #012a36;
-  top: 10vh;
-  left: 10vh; }
+  padding-top: 15vh; }
 
 #bio-block {
-  top: 0vh;
-  right: 0vh;
-  background-color: #012a36; }
+  background-color: #012a36;
+  bottom: 13vw;
+  right: 30vw;
+  border-radius: 100% 0 0 0; }
   #bio-block:hover {
     background: #01171d; }
 
 #bio-section-label {
-  color: white;
-  top: 10vh;
-  right: 10vh; }
+  color: #F3F7F0;
+  padding-top: 15vh; }
 
 #resume-block {
-  background-color: #8aea92;
-  bottom: 0vh; }
+  background-color: #083D77;
+  border-radius: 0 0 100% 0;
+  top: 15vw;
+  left: 70.5vw; }
   #resume-block:hover {
-    background: #74e67e; }
+    background: #06315f; }
 
 #resume-section-label {
-  color: #012a36; }
+  color: #F3F7F0; }
 
 #contact-block {
-  bottom: 0vh;
-  right: 0vh;
-  background-color: #e6af2e; }
+  background-color: #8CC5D8;
+  border-radius: 0 0 0 100%;
+  top: 15vw;
+  right: 30vw; }
   #contact-block:hover {
-    background: #e0a51b; }
+    background: #79bbd2;
+    width: 12vw;
+    height: 12vw; }
 
 #contact-section-label {
-  color: white; }
+  color: #012a36; }
 
 .featured-project {
   width: 80vw;
@@ -209,7 +216,7 @@ a, a:visited, a:hover, a:active {
   position: relative;
   transition: 0.5s color ease;
   text-decoration: none;
-  color: #81b3d2;
+  color: #8CC5D8;
   font-size: 3vh; }
 
 a:hover {
@@ -297,8 +304,6 @@ a.before:hover:before, a.after:hover:after {
     padding: 1vw 15vw;
     left: 15vw; }
   .title {
-    font-size: 8vh; }
-  .section-label {
     font-size: 8vh; } }
 
 /*# sourceMappingURL=main.css.map*/
