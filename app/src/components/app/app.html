@@ -13,7 +13,7 @@
     </header>  
   
     <!-- <div class="hero" ng-style="{'background-image':'url(./images/sahale-glacier.png)'}"> -->
-    <div class = "jumbotron">
+    <div class = "jumbotron" ng-style="{'background-color': $ctrl.activeColor}">
         <div id="title-block">
         <h1 id="title" class="tagline">Mugsy Carter</h1>
         <h3 id="subtitle">Fart Developer</h3>
@@ -38,14 +38,14 @@
             </div>
         
             <!-- <div id="menu-row"> -->
-            <div class="section-block" id="resume-block">
-                <a ui-sref="resume">
+            <div class="section-block" id="resume-block" ng-if="$ctrl.link.home===false" ng-click="$ctrl.clicked('home')">
+                <a ui-sref="home">
                     <h1 class='section-label' id='resume-section-label'>
                         Resume
                     </h1>
                 </a>
             </div>
-            <div class="section-block" id="contact-block">
+            <div class="section-block" id="contact-block" ng-if="$ctrl.link.contact===false" ng-click="$ctrl.clicked('contact')">
                 <a ui-sref="contact">
                     <h1 class='section-label' id='contact-section-label'>
                         Contact

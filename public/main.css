@@ -49,42 +49,44 @@ td, th {
 .active-link {
   color: #8CC5D8; }
 
-.hero {
-  color: #FFF;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  padding: 25%;
-  z-index: 1;
-  height: 25vh; }
+.jumbotron {
+  display: inline-block;
+  border: 1px solid black;
+  max-height: 25vw;
+  margin: 1vw; }
 
-#title {
-  font-family: 'Voltaire', sans-serif;
-  font-size: 4em;
-  font-weight: bold;
-  text-shadow: 3px 4px 4px black; }
+#title-block {
+  width: 65vw;
+  height: 15vw;
+  display: inline-block;
+  background-color: #F3F7F0;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
 
-#subtitle {
-  font-family: 'Voltaire', sans-serif;
-  color: #FFF;
-  font-size: 1.75em;
-  font-weight: bold;
-  text-shadow: 3px 4px 4px black;
-  margin-left: 5em; }
+.title {
+  font-size: 5vh;
+  margin: 0vh;
+  padding: 0vh;
+  color: #012a36;
+  z-index: 1; }
 
-.branding {
-  font-family: 'Voltaire', sans-serif;
-  color: #FFF;
-  font-size: 1.75em;
-  font-weight: bold;
-  text-shadow: 3px 4px 4px black; }
+.subtitle {
+  width: 30vw;
+  font-size: 5vh; }
+
+#menu-block {
+  position: relative;
+  display: inline-block;
+  background-color: none;
+  width: 25vw;
+  height: 25vw;
+  border-radius: 100%; }
 
 .section-block {
   position: absolute;
   width: 10vw;
   height: 10vw;
   cursor: pointer;
-  z-index: -1;
+  z-index: 2;
   margin: 1vh 0vh 1vh 1vh;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
   .section-block:hover {
@@ -105,8 +107,8 @@ td, th {
 #projects-block {
   background-color: #FF9438;
   border-radius: 0 100% 0 0;
-  bottom: 13vw;
-  left: 70.5vw; }
+  bottom: 12vw;
+  left: 12.75vw; }
   #projects-block:hover {
     background: #ff861f; }
 
@@ -116,8 +118,8 @@ td, th {
 
 #bio-block {
   background-color: #012a36;
-  bottom: 13vw;
-  right: 30vw;
+  bottom: 12vw;
+  right: 12vw;
   border-radius: 100% 0 0 0; }
   #bio-block:hover {
     background: #01171d; }
@@ -129,8 +131,8 @@ td, th {
 #resume-block {
   background-color: #083D77;
   border-radius: 0 0 100% 0;
-  top: 15vw;
-  left: 70.5vw; }
+  top: 12.5vw;
+  left: 12.75vw; }
   #resume-block:hover {
     background: #06315f; }
 
@@ -140,8 +142,8 @@ td, th {
 #contact-block {
   background-color: #8CC5D8;
   border-radius: 0 0 0 100%;
-  top: 15vw;
-  right: 30vw; }
+  top: 12.5vw;
+  right: 12vw; }
   #contact-block:hover {
     background: #79bbd2;
     width: 12vw;

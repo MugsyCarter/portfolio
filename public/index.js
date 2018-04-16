@@ -34591,6 +34591,8 @@
 	
 	    this.header = false;
 	
+	    this.activeColor = '#083D77';
+	
 	    this.clicked = function (page) {
 	        if (_this.link[page] === false) {
 	            console.log('updating link');
@@ -34602,6 +34604,19 @@
 	                resume: false
 	            };
 	            _this.link[page] = true;
+	
+	            if (page === 'home') {
+	                _this.activeColor = '#083D77';
+	            }
+	            if (page === 'projects') {
+	                _this.activeColor = '#FF9438';
+	            }
+	            if (page === 'contact') {
+	                _this.activeColor = '#8CC5D8';
+	            }
+	            if (page === 'bio') {
+	                _this.activeColor = '#012a36';
+	            }
 	        }
 	        if (_this.link.home === true) {
 	            _this.header = false;
@@ -34615,7 +34630,7 @@
 /* 13 */
 /***/ (function(module, exports) {
 
-	module.exports = " <section>\n     <header ng-if=\"$ctrl.header===true\">\n         <!-- <nav class=\"main-nav\">\n            <image id=\"menuIcon\" src=\"./images/menu.png\">\n            <ul>\n                <li class=\"link\"><a ui-sref=\"home\" id=\"home-link\"  ng-class='{\"activeLink\":$ctrl.link[\"home\"]===true}' ng-click=\"$ctrl.clicked('home')\">Home</a></li>\n                <li class=\"link\"><a ui-sref=\"projects\" id=\"projects-link\" ng-class='{\"activeLink\":$ctrl.link[\"projects\"]===true}' ng-click=\"$ctrl.clicked('projects')\">Projects</a></li>\n                 <li class=\"link\"><a ui-sref=\"bio\" id=\"bio-link\" ng-class='{\"activeLink\":$ctrl.link[\"bio\"]===true}' ng-click=\"$ctrl.clicked('bio')\">About Mugsy</a></li> \n                 <li class=\"link\"><a ui-sref=\"resume\" id=\"resume-link\"  ng-class='{\"activeLink\":$ctrl.link[\"resume\"]===true}' ng-click=\"$ctrl.clicked('resume')\">Resume</a></li>\n                 <li class=\"link\"><a ui-sref=\"contact\" id=\"contact-link\"  ng-class='{\"activeLink\":$ctrl.link[\"contact\"]===true}' ng-click=\"$ctrl.clicked('contact')\">contact</a></li>  \n            </ul>\n        </nav> -->\n    </header>  \n  \n    <div class=\"hero\" ng-style=\"{'background-image':'url(./images/sahale-glacier.png)'}\">\n        <h1 id=\"title\" class=\"tagline\">Mugsy Carter</h1>\n        <h3 id=\"subtitle\">Fart Developer</h3>\n    </div>\n\n    <div id=\"menu-block\">\n        <div id=\"menu-row\">\n            <div class=\"section-block\" id=\"projects-block\">\n                <a ui-sref=\"projects\">\n                    <h1 class='section-label' id='projects-section-label'>\n                        Projects\n                    </h1>\n                </a>\n            </div>\n            <div class=\"section-block\" id=\"bio-block\">\n                <a ui-sref=\"bio\">\n                    <h1 class='section-label' id='bio-section-label'>\n                        About Mugsy\n                    </h1>\n                </a>\n            </div>\n        </div>\n    \n        <div id=\"menu-row\">\n            <div class=\"section-block\" id=\"resume-block\">\n                <a ui-sref=\"resume\">\n                    <h1 class='section-label' id='resume-section-label'>\n                        Resume\n                    </h1>\n                </a>\n            </div>\n            <div class=\"section-block\" id=\"contact-block\">\n                <a ui-sref=\"contact\">\n                    <h1 class='section-label' id='contact-section-label'>\n                        Contact\n                    </h1>\n                </a>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"main-content\">\n        <ui-view></ui-view>\n    </div>\n\n\n\n  </section>";
+	module.exports = " <section>\n     <header ng-if=\"$ctrl.header===true\">\n         <!-- <nav class=\"main-nav\">\n            <image id=\"menuIcon\" src=\"./images/menu.png\">\n            <ul>\n                <li class=\"link\"><a ui-sref=\"home\" id=\"home-link\"  ng-class='{\"activeLink\":$ctrl.link[\"home\"]===true}' ng-click=\"$ctrl.clicked('home')\">Home</a></li>\n                <li class=\"link\"><a ui-sref=\"projects\" id=\"projects-link\" ng-class='{\"activeLink\":$ctrl.link[\"projects\"]===true}' ng-click=\"$ctrl.clicked('projects')\">Projects</a></li>\n                 <li class=\"link\"><a ui-sref=\"bio\" id=\"bio-link\" ng-class='{\"activeLink\":$ctrl.link[\"bio\"]===true}' ng-click=\"$ctrl.clicked('bio')\">About Mugsy</a></li> \n                 <li class=\"link\"><a ui-sref=\"resume\" id=\"resume-link\"  ng-class='{\"activeLink\":$ctrl.link[\"resume\"]===true}' ng-click=\"$ctrl.clicked('resume')\">Resume</a></li>\n                 <li class=\"link\"><a ui-sref=\"contact\" id=\"contact-link\"  ng-class='{\"activeLink\":$ctrl.link[\"contact\"]===true}' ng-click=\"$ctrl.clicked('contact')\">contact</a></li>  \n            </ul>\n        </nav> -->\n    </header>  \n  \n    <!-- <div class=\"hero\" ng-style=\"{'background-image':'url(./images/sahale-glacier.png)'}\"> -->\n    <div class = \"jumbotron\" ng-style=\"{'background-color': $ctrl.activeColor}\">\n        <div id=\"title-block\">\n        <h1 id=\"title\" class=\"tagline\">Mugsy Carter</h1>\n        <h3 id=\"subtitle\">Fart Developer</h3>\n        </div>\n\n        <div id=\"menu-block\">\n            <!-- <div id=\"menu-row\"> -->\n            <div class=\"section-block\" id=\"projects-block\" ng-if=\"$ctrl.link.projects===false\" ng-click=\"$ctrl.clicked('projects')\">\n                <a ui-sref=\"projects\">\n                    <h1 class='section-label' id='projects-section-label'>\n                        Projects\n                    </h1>\n                </a>\n            </div>\n            <div class=\"section-block\" id=\"bio-block\" ng-if=\"$ctrl.link.bio===false\" ng-click=\"$ctrl.clicked('bio')\">\n                <a ui-sref=\"bio\">\n                    <h1 class='section-label' id='bio-section-label'>\n                        About Mugsy\n                    </h1>\n                </a>\n            <!-- </div> -->\n            </div>\n        \n            <!-- <div id=\"menu-row\"> -->\n            <div class=\"section-block\" id=\"resume-block\" ng-if=\"$ctrl.link.home===false\" ng-click=\"$ctrl.clicked('home')\">\n                <a ui-sref=\"home\">\n                    <h1 class='section-label' id='resume-section-label'>\n                        Resume\n                    </h1>\n                </a>\n            </div>\n            <div class=\"section-block\" id=\"contact-block\" ng-if=\"$ctrl.link.contact===false\" ng-click=\"$ctrl.clicked('contact')\">\n                <a ui-sref=\"contact\">\n                    <h1 class='section-label' id='contact-section-label'>\n                        Contact\n                    </h1>\n                </a>\n            </div>\n            <!-- </div> -->\n        </div>\n    </div>\n\n    <div class=\"main-content\">\n        <ui-view></ui-view>\n    </div>\n\n\n\n  </section>";
 
 /***/ }),
 /* 14 */

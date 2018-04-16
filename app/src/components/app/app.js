@@ -18,6 +18,8 @@ function controller() {
 
     this.header = false;
 
+    this.activeColor = '#083D77';
+
     this.clicked = (page)=>{
         if (this.link[page] === false){
             console.log('updating link');
@@ -29,6 +31,19 @@ function controller() {
                 resume: false
             };
             this.link[page] = true;
+
+            if (page === 'home'){
+                this.activeColor = '#083D77';
+            }
+            if (page === 'projects'){
+                this.activeColor = '#FF9438';
+            }
+            if (page === 'contact'){
+                this.activeColor = '#8CC5D8';
+            }
+            if (page === 'bio'){
+                this.activeColor = '#012a36';
+            }
         }
         if (this.link.home === true){
             this.header = false;
