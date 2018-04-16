@@ -51,6 +51,56 @@ td, th{
 //   background-color: white;
 //   box-shadow: 0.1vw 0.5vw 0.5vw #888888;
 // }
+
+
+// .hero {
+//   color:#FFF;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   background-attachment:fixed;
+//   padding: 25%;
+//   z-index:0;
+//   height: 25vh;
+// }
+
+.jumbotron{
+  display: inline-block;
+  border: 1px solid black;
+  max-height: 25vw;
+  margin: 1vw;
+}
+
+// //hero jumbotron
+// #title {
+//   font-family: 'Voltaire', sans-serif;
+//   font-size: 4em;
+//   font-weight: bold;
+//   text-shadow: 3px 4px 4px black;
+// }
+
+// #subtitle {
+//   font-family: 'Voltaire', sans-serif;
+//   color:#FFF;
+//   font-size:1.75em;
+//   font-weight: bold;
+//   text-shadow: 3px 4px 4px black;
+//   margin-left: 5em;
+// }
+
+// .branding {
+//   font-family: 'Voltaire', sans-serif;
+//   color:#FFF;
+//   font-size:1.75em;
+//   font-weight: bold;
+//   text-shadow: 3px 4px 4px black;
+// }
+
+#title-block{
+  width: 65vw;
+  height: 15vw;
+  display: inline-block;
+  border: 1px solid black;
+}
 .title{
   font-size: 5vh;
   margin: 0vh;
@@ -64,15 +114,20 @@ td, th{
   font-size: 5vh;
 }
 
-// #menu-block{
+#menu-block{
+  position: relative;
+  display: inline-block;
 //   display: block;
 //   padding: 0;
-//   width: 200px;
-//   height: 200px;
-//   border: 1px;
-//   border-radius: 50%;
+width: 25vw;
+height: 25vw;
+border: 1px solid black;
+//   position: absolute;
+//   z-index: 1;
+//   border-radius: 100%;
 //   overflow: hidden;
-// }
+//   background-color: $black;
+}
 
 // #menu-row{
 //    //display: inline-block
@@ -86,7 +141,7 @@ td, th{
   width: 10vw;
   height: 10vw;
   cursor: pointer;
-  z-index: -1;
+  z-index: 2;
   margin: 1vh 0vh 1vh 1vh; 
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
   &:hover{
@@ -111,9 +166,9 @@ td, th{
 
 #projects-block{
   background-color: $pink;
-  border-radius: 0 100% 0 0; 
-  bottom: 13vw;
-  left: 70.5vw;
+  border-radius: 0 100% 0 0;
+  bottom: 12vw;
+  left: 12.75vw;
   &:hover{
     background: darken($pink, 5%);
   }
@@ -125,8 +180,8 @@ td, th{
 
 #bio-block{
   background-color: $blue;
-  bottom: 13vw;
-  right: 30vw;
+  bottom: 12vw;
+  right: 12vw;
   border-radius: 100% 0 0 0; 
   &:hover{
     background: darken($blue, 5%);
@@ -143,8 +198,8 @@ td, th{
 #resume-block{
   background-color: $green;
   border-radius: 0 0 100% 0; 
-  top: 15vw;
-  left: 70.5vw;
+  top: 12.5vw;
+  left: 12.75vw;
   &:hover{
     background: darken($green, 5%);
   }
@@ -157,8 +212,8 @@ td, th{
 #contact-block{
   background-color: $sky;
   border-radius: 0 0 0 100%;
-  top: 15vw;
-  right: 30vw; 
+  top: 12.5vw;
+  right: 12vw;
   &:hover{
     background: darken($sky, 5%);
     width: 12vw;
@@ -170,9 +225,7 @@ td, th{
   color: $blue;
 }
 
-
 //featured project
-
 .featured-project{
   width: 80vw;
   box-shadow: 1vw 0.1vw 1vw #888888;

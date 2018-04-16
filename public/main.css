@@ -49,16 +49,35 @@ td, th {
 .active-link {
   color: #8CC5D8; }
 
-.title {
-  font-size: 5vh;
-  margin: 0vh;
-  padding: 0vh;
-  color: #012a36;
-  z-index: 1; }
+.hero {
+  color: #FFF;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 25%;
+  z-index: 1;
+  height: 25vh; }
 
-.subtitle {
-  width: 30vw;
-  font-size: 5vh; }
+#title {
+  font-family: 'Voltaire', sans-serif;
+  font-size: 4em;
+  font-weight: bold;
+  text-shadow: 3px 4px 4px black; }
+
+#subtitle {
+  font-family: 'Voltaire', sans-serif;
+  color: #FFF;
+  font-size: 1.75em;
+  font-weight: bold;
+  text-shadow: 3px 4px 4px black;
+  margin-left: 5em; }
+
+.branding {
+  font-family: 'Voltaire', sans-serif;
+  color: #FFF;
+  font-size: 1.75em;
+  font-weight: bold;
+  text-shadow: 3px 4px 4px black; }
 
 .section-block {
   position: absolute;

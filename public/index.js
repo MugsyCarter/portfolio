@@ -34615,7 +34615,7 @@
 /* 13 */
 /***/ (function(module, exports) {
 
-	module.exports = " <section>\n     <header ng-if=\"$ctrl.header===true\">\n         <nav class=\"main-nav\">\n            <image id=\"menuIcon\" src=\"./images/menu.png\">\n            <ul>\n                <li class=\"link\"><a ui-sref=\"home\" id=\"home-link\"  ng-class='{\"activeLink\":$ctrl.link[\"home\"]===true}' ng-click=\"$ctrl.clicked('home')\">Home</a></li>\n                <li class=\"link\"><a ui-sref=\"projects\" id=\"projects-link\" ng-class='{\"activeLink\":$ctrl.link[\"projects\"]===true}' ng-click=\"$ctrl.clicked('projects')\">Projects</a></li>\n                 <li class=\"link\"><a ui-sref=\"bio\" id=\"bio-link\" ng-class='{\"activeLink\":$ctrl.link[\"bio\"]===true}' ng-click=\"$ctrl.clicked('bio')\">About Mugsy</a></li> \n                 <li class=\"link\"><a ui-sref=\"resume\" id=\"resume-link\"  ng-class='{\"activeLink\":$ctrl.link[\"resume\"]===true}' ng-click=\"$ctrl.clicked('resume')\">Resume</a></li>\n                 <li class=\"link\"><a ui-sref=\"contact\" id=\"contact-link\"  ng-class='{\"activeLink\":$ctrl.link[\"contact\"]===true}' ng-click=\"$ctrl.clicked('contact')\">contact</a></li>  \n            </ul>\n        </nav>\n    </header>  \n  \n    <div id=\"menu-block\">\n            <div id=\"menu-row\">\n            <div class=\"section-block\" id=\"projects-block\">\n                <a ui-sref=\"projects\">\n                    <h1 class='section-label' id='projects-section-label'>\n                        Projects\n                    </h1>\n                </a>\n            </div>\n            <div class=\"section-block\" id=\"bio-block\">\n                <a ui-sref=\"bio\">\n                    <h1 class='section-label' id='bio-section-label'>\n                        About Mugsy\n                    </h1>\n                </a>\n            </div>\n            </div>\n    \n            <div id=\"menu-row\">\n            <div class=\"section-block\" id=\"resume-block\">\n                <a ui-sref=\"resume\">\n                    <h1 class='section-label' id='resume-section-label'>\n                        Resume\n                    </h1>\n                </a>\n            </div>\n            <div class=\"section-block\" id=\"contact-block\">\n                <a ui-sref=\"contact\">\n                    <h1 class='section-label' id='contact-section-label'>\n                        Contact\n                    </h1>\n                </a>\n            </div>\n            </div>\n\n        </div>\n    <div class=\"main-content\">\n        <ui-view></ui-view>\n    </div>\n\n\n\n  </section>";
+	module.exports = " <section>\n     <header ng-if=\"$ctrl.header===true\">\n         <!-- <nav class=\"main-nav\">\n            <image id=\"menuIcon\" src=\"./images/menu.png\">\n            <ul>\n                <li class=\"link\"><a ui-sref=\"home\" id=\"home-link\"  ng-class='{\"activeLink\":$ctrl.link[\"home\"]===true}' ng-click=\"$ctrl.clicked('home')\">Home</a></li>\n                <li class=\"link\"><a ui-sref=\"projects\" id=\"projects-link\" ng-class='{\"activeLink\":$ctrl.link[\"projects\"]===true}' ng-click=\"$ctrl.clicked('projects')\">Projects</a></li>\n                 <li class=\"link\"><a ui-sref=\"bio\" id=\"bio-link\" ng-class='{\"activeLink\":$ctrl.link[\"bio\"]===true}' ng-click=\"$ctrl.clicked('bio')\">About Mugsy</a></li> \n                 <li class=\"link\"><a ui-sref=\"resume\" id=\"resume-link\"  ng-class='{\"activeLink\":$ctrl.link[\"resume\"]===true}' ng-click=\"$ctrl.clicked('resume')\">Resume</a></li>\n                 <li class=\"link\"><a ui-sref=\"contact\" id=\"contact-link\"  ng-class='{\"activeLink\":$ctrl.link[\"contact\"]===true}' ng-click=\"$ctrl.clicked('contact')\">contact</a></li>  \n            </ul>\n        </nav> -->\n    </header>  \n  \n    <div class=\"hero\" ng-style=\"{'background-image':'url(./images/sahale-glacier.png)'}\">\n        <h1 id=\"title\" class=\"tagline\">Mugsy Carter</h1>\n        <h3 id=\"subtitle\">Fart Developer</h3>\n    </div>\n\n    <div id=\"menu-block\">\n        <div id=\"menu-row\">\n            <div class=\"section-block\" id=\"projects-block\">\n                <a ui-sref=\"projects\">\n                    <h1 class='section-label' id='projects-section-label'>\n                        Projects\n                    </h1>\n                </a>\n            </div>\n            <div class=\"section-block\" id=\"bio-block\">\n                <a ui-sref=\"bio\">\n                    <h1 class='section-label' id='bio-section-label'>\n                        About Mugsy\n                    </h1>\n                </a>\n            </div>\n        </div>\n    \n        <div id=\"menu-row\">\n            <div class=\"section-block\" id=\"resume-block\">\n                <a ui-sref=\"resume\">\n                    <h1 class='section-label' id='resume-section-label'>\n                        Resume\n                    </h1>\n                </a>\n            </div>\n            <div class=\"section-block\" id=\"contact-block\">\n                <a ui-sref=\"contact\">\n                    <h1 class='section-label' id='contact-section-label'>\n                        Contact\n                    </h1>\n                </a>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"main-content\">\n        <ui-view></ui-view>\n    </div>\n\n\n\n  </section>";
 
 /***/ }),
 /* 14 */
@@ -34888,7 +34888,7 @@
 /* 19 */
 /***/ (function(module, exports) {
 
-	module.exports = "<section>\n    <div class = \"page\" id=\"home-page\" ng-if=\"$ctrl.location==='home'\">\n        <div class='home-page-top'>\n            <h1 class=\"title\">Mugsy Carter</h1>\n            <h1 class=\"subtitle\">Developer Portfolio</h1>\n        </div>\n        \n    </div>\n</section>";
+	module.exports = "<section>\n    <div class = \"page\" id=\"home-page\" ng-if=\"$ctrl.location==='home'\">\n        <!-- <div class='home-page-top'>\n            <h1 class=\"title\">Mugsy Carter</h1>\n            <h1 class=\"subtitle\">Developer Portfolio</h1>\n        </div> -->\n    </div>\n</section>";
 
 /***/ }),
 /* 20 */
@@ -34996,6 +34996,17 @@
 	        showMore: false,
 	        type: 'solo',
 	        index: 5
+	    }, {
+	        title: 'California Lynching Database',
+	        url: 'https://lynching-database.herokuapp.com/#!/lynchMap',
+	        imageURL: './images/calynch.png',
+	        description: '  An interactive database of all the historical lynchings in the state of California.',
+	        takeaway: '  This was a contract project for a history professor at Portland State University.  It took several months to build came out more more complex and with many more features than the original scope.  I particularly enjoyed getting familar with the Google Maps API and helping the client set up his data relationally.',
+	        date: '  ongoing',
+	        tech: '  MEAN Stack',
+	        showMore: false,
+	        type: 'solo',
+	        index: 6
 	    }];
 	
 	    var num = Math.round(Math.random() + 1) * 2;
