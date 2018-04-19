@@ -35078,11 +35078,11 @@
 	    console.log(this.featuredProjects);
 	
 	    var num = Math.random();
-	    console.log(num);
+	    //console.log(num);
 	    num *= 3;
-	    console.log(num);
+	    //console.log(num);
 	    num = Math.round(num);
-	    console.log('num is ', num);
+	    //console.log('num is ', num);
 	    this.featuredWebsite = this.featuredProjects[num];
 	};
 
