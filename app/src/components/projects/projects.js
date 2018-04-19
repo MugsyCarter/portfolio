@@ -105,7 +105,7 @@ function controller() {
             url: 'https://lynching-database.herokuapp.com/#!/lynchMap',
             imageURL: './images/calynch.png',
             description: '  An interactive database of all the historical lynchings in the state of California.',
-            takeaway: '  This was a contract project for a history professor at Portland State University.  It took several months to build came out more more complex and with many more features than the original scope.  I particularly enjoyed getting familar with the Google Maps API and helping the client set up his data relationally.',
+            takeaway: '  This was a contract project for a history professor at Portland State University.  It took several months to build and came out more more complex and with many more features than the original scope.  I particularly enjoyed getting familar with the Google Maps API and helping the client set up his data relationally.',
             date: '  ongoing',
             tech: '  MEAN Stack',
             showMore: false,
@@ -159,9 +159,23 @@ function controller() {
 
     this.updateActiveProjects('none');
 
-    let num = (Math.round(Math.random() + 1))*2;
+
+    this.featuredProjects = [];
+    this.featuredProjects.push(this.projects[2]);
+    this.featuredProjects.push(this.projects[6]);
+    this.featuredProjects.push(this.projects[3]);
+    this.featuredProjects.push(this.projects[4]);
+    
+
+    console.log(this.featuredProjects);
+
+    let num = Math.random();
+    console.log(num);
+    num *= 3;
+    console.log(num);
+    num = (Math.round(num));
     console.log('num is ', num);
-    this.featuredWebsite = this.projects[num];
+    this.featuredWebsite = this.featuredProjects[num];
 
 
 };
