@@ -35024,6 +35024,51 @@
 	        index: 6
 	    }];
 	
+	    this.activeProjects = [];
+	
+	    this.firstIndex = 2;
+	    this.lastIndex = 6;
+	
+	    this.updateActiveProjects = function (direction) {
+	
+	        if (direction === 'down') {
+	            _this.activeProjects.shift();
+	            _this.lastIndex++;
+	            _this.firstIndex++;
+	            if (_this.lastIndex > _this.projects.length - 1) {
+	                _this.lastIndex = 0;
+	            }
+	            if (_this.firstIndex > _this.projects.length - 1) {
+	                _this.firstIndex = 0;
+	            }
+	            _this.activeProjects.push(_this.projects[_this.lastIndex]);
+	            console.log('adding this project', _this.projects[_this.lastIndex].index);
+	        }
+	        if (direction === 'up') {
+	            _this.activeProjects.pop();
+	            _this.firstIndex--;
+	            _this.lastIndex--;
+	            if (_this.firstIndex < 0) {
+	                _this.firstIndex = _this.projects.length - 1;
+	            }
+	            if (_this.lastIndex < 0) {
+	                _this.lastIndex = _this.projects.length - 1;
+	            }
+	            _this.activeProjects.unshift(_this.projects[_this.firstIndex]);
+	            console.log('adding this project', _this.projects[_this.firstIndex].index);
+	        }
+	
+	        console.log('updating ', _this.firstIndex, _this.lastIndex);
+	        if (direction === 'none') {
+	            _this.activeProjects = [];
+	            for (var i = _this.firstIndex; i <= _this.lastIndex; i++) {
+	                _this.activeProjects.push(_this.projects[i]);
+	            }
+	        }
+	    };
+	
+	    this.updateActiveProjects('none');
+	
 	    var num = Math.round(Math.random() + 1) * 2;
 	    console.log('num is ', num);
 	    this.featuredWebsite = this.projects[num];
@@ -35033,7 +35078,7 @@
 /* 21 */
 /***/ (function(module, exports) {
 
-	module.exports = "<section>\n\n    <div ng-if=\"$ctrl.location==='projects'\">\n        <h1 class=\"title\">Projects</h1>\n\n        <div class=\"featured-project\">\n            <h1 class=\"subtitle\">Featured Web App: {{$ctrl.featuredWebsite.title}}</h1>\n            <image class=\"featured-project-image\" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>\n            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>\n            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>\n            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>\n            <p>Date: {{$ctrl.featuredWebsite.date}}</p>\n            <a>{{$ctrl.featuredWebsite.url}}</a>\n        </div>\n\n         <div class=\"solo-projects\"> \n            <!-- <h1 clas=\"subtitle\">Gallery</h1> -->\n            <ul>\n                <!-- ng-if=\"project.type==='solo'\"  -->\n                <li class=\"project\"  ng-repeat=\"project in $ctrl.projects\" ng-click=\"$ctrl.toggleProject(project)\" ng-class='{\"clickedProject\":project.showMore===true}'>\n                    <div class=\"project-title\">\n                        <h2>{{project.title}}</h2>\n                    </div>\n                    <div class=\"project-content\" ng-if=\"project.showMore===true\">\n                         <image class=\"project-image\" title={{project.title}} src={{project.imageURL}}  />\n                        <!-- <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                        <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button> \n                        <div ng-if=\"project.showMore===true\"> -->\n                            <p class=\"project-text\">Description: {{project.description}}</p>\n                            <p class=\"project-text\">Developer Notes: {{project.takeaway}}</p>\n                            <p class=\"project-text\">Techonology Used: {{project.tech}}</p>\n                            <p class=\"project-text\">Date: {{project.date}}</p>\n                            <div class=\"wrapper\">\n                                <span class=\"square\">\n                                    <a class=\"site-link before after\" href=\"{{project.url}}\">{{project.url}}</a> \n                                </span>\n                            </div>\n                           \n                        <!-- </div> -->   \n                    </div>\n                </li>\n            </ul>\n         </div> \n    </div>\n</section>";
+	module.exports = "<section>\n\n    <div ng-if=\"$ctrl.location==='projects'\">\n        <h1 class=\"title\">Projects</h1>\n\n        <div class=\"featured-project\">\n            <h1 class=\"subtitle\">Featured Web App: {{$ctrl.featuredWebsite.title}}</h1>\n            <image class=\"featured-project-image\" src={{$ctrl.featuredWebsite.imageURL}} title={{$ctrl.featuredWebsite.title}}>\n            <p>Decription: {{$ctrl.featuredWebsite.description}}</p>\n            <p>Features: {{$ctrl.featuredWebsite.takeaway}}</p>\n            <p>Technology Used: {{$ctrl.featuredWebsite.tech}}</p>\n            <p>Date: {{$ctrl.featuredWebsite.date}}</p>\n            <a>{{$ctrl.featuredWebsite.url}}</a>\n        </div>\n\n         <div class=\"solo-projects\"> \n            <!-- <h1 clas=\"subtitle\">Gallery</h1> -->\n            <ul>\n                <!-- ng-if=\"project.type==='solo'\"  -->\n                <li class=\"project\"  ng-repeat=\"project in $ctrl.activeProjects\" ng-click=\"$ctrl.toggleProject(project)\" ng-class='{\"clickedProject\":project.showMore===true}'>\n                    <div class=\"project-title\">\n                        <h2>{{project.title}}</h2>\n                    </div>\n                    <div class=\"project-content\" ng-if=\"project.showMore===true\">\n                         <image class=\"project-image\" title={{project.title}} src={{project.imageURL}}  />\n                        <!-- <button ng-if=\"project.showMore===false\"ng-click=\"$ctrl.showMore(project)\">show more</button>\n                        <button ng-if=\"project.showMore===true\" ng-click=\"$ctrl.showLess(project)\">show less</button> \n                        <div ng-if=\"project.showMore===true\"> -->\n                            <p class=\"project-text\">Description: {{project.description}}</p>\n                            <p class=\"project-text\">Developer Notes: {{project.takeaway}}</p>\n                            <p class=\"project-text\">Techonology Used: {{project.tech}}</p>\n                            <p class=\"project-text\">Date: {{project.date}}</p>\n                            <div class=\"wrapper\">\n                                <span class=\"square\">\n                                    <a class=\"site-link before after\" href=\"{{project.url}}\">{{project.url}}</a> \n                                </span>\n                            </div>\n                           \n                        <!-- </div> -->   \n                    </div>\n                </li>\n            </ul>\n            <div class=\"project-buttons\">\n                <div id=\"left-button\" ng-click=\"$ctrl.updateActiveProjects('down')\"></div> \n                <div id=\"right-button\" ng-click=\"$ctrl.updateActiveProjects('up')\"></div>\n            </div>\n         </div> \n    </div>\n</section>";
 
 /***/ }),
 /* 22 */

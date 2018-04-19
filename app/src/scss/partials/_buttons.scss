@@ -22,3 +22,33 @@ button:hover {
   cursor: pointer;
   box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+#left-button{
+  display: inline-block;
+  height: 0px;
+  width: 0px;
+  border-top: 50px solid transparent;
+	border-right: 100px solid $blue;
+  border-bottom: 50px solid transparent;
+  border-radius: 10px 0px 0px 10px;
+  &:hover {
+    //background-color: $pink;
+    border-right: 100px solid $pink;
+    cursor: pointer;
+  }
+}
+
+#right-button{
+  display: inline-block;
+  height: 0px;
+  width: 0px;
+  border-top: 50px solid transparent;
+	border-left: 100px solid $blue;
+  border-bottom: 50px solid transparent;
+  border-radius: 10px 0px 0px 10px;
+  &:hover {
+    //background-color: $pink;
+    border-left: 100px solid $pink;
+    cursor: pointer;
+  }
+}

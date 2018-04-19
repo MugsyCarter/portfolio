@@ -17,6 +17,30 @@ button:hover {
   cursor: pointer;
   box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
+#left-button {
+  display: inline-block;
+  height: 0px;
+  width: 0px;
+  border-top: 50px solid transparent;
+  border-right: 100px solid #012a36;
+  border-bottom: 50px solid transparent;
+  border-radius: 10px 0px 0px 10px; }
+  #left-button:hover {
+    border-right: 100px solid #FF9438;
+    cursor: pointer; }
+
+#right-button {
+  display: inline-block;
+  height: 0px;
+  width: 0px;
+  border-top: 50px solid transparent;
+  border-left: 100px solid #012a36;
+  border-bottom: 50px solid transparent;
+  border-radius: 10px 0px 0px 10px; }
+  #right-button:hover {
+    border-left: 100px solid #FF9438;
+    cursor: pointer; }
+
 * {
   font-family: 'Voltaire', sans-serif;
   text-align: center;
@@ -51,8 +75,10 @@ td, th {
 
 .jumbotron {
   display: inline-block;
-  border: 1px solid black;
+  transition: background-color 0.5s ease;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   max-height: 25vw;
+  width: 95vw;
   margin: 1vw; }
 
 #title-block {
@@ -76,16 +102,17 @@ td, th {
 #menu-block {
   position: relative;
   display: inline-block;
-  background-color: none;
+  background-color: #F3F7F0;
   width: 25vw;
   height: 25vw;
-  border-radius: 100%; }
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
 
 .section-block {
   position: absolute;
   width: 10vw;
   height: 10vw;
   cursor: pointer;
+  transition: height 0.5s ease, width 0.5s ease;
   z-index: 2;
   margin: 1vh 0vh 1vh 1vh;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
@@ -154,7 +181,7 @@ td, th {
 
 .featured-project {
   width: 80vw;
-  box-shadow: 1vw 0.1vw 1vw #888888;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   margin: 0vw 10vw; }
 
 .featured-project-image {
@@ -167,20 +194,21 @@ td, th {
 
 ul {
   display: flex;
-  min-height: 100vh;
-  max-height: 100vh;
+  min-height: 80vh;
+  max-height: 95vh;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  list-style-type: none; }
+  list-style-type: none;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
 
 li {
   flex: 1;
   display: flex;
   align-items: stretch;
-  padding: 20px;
+  padding: 10px;
   background: #012a36;
-  transition: all 2.5s ease; }
+  transition: all 1.5s ease; }
   li:hover {
     background: #000b0e;
     cursor: pointer; }

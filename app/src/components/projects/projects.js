@@ -114,6 +114,51 @@ function controller() {
         }
     ];
 
+    this.activeProjects = [];
+
+    this.firstIndex = 2;
+    this.lastIndex = 6;
+
+    this.updateActiveProjects = (direction)=>{
+     
+        if (direction === 'down'){
+            this.activeProjects.shift();
+            this.lastIndex ++;
+            this.firstIndex ++;
+            if (this.lastIndex > this.projects.length-1){
+                this.lastIndex = 0;
+            }
+            if (this.firstIndex > this.projects.length-1){
+                this.firstIndex = 0;
+            }
+            this.activeProjects.push(this.projects[this.lastIndex]);
+            console.log('adding this project', this.projects[this.lastIndex].index);
+        }
+        if (direction === 'up'){
+            this.activeProjects.pop();
+            this.firstIndex --;
+            this.lastIndex --;
+            if (this.firstIndex < 0){
+                this.firstIndex = this.projects.length-1;
+            }
+            if (this.lastIndex < 0){
+                this.lastIndex = this.projects.length-1;
+            }
+            this.activeProjects.unshift(this.projects[this.firstIndex]);
+            console.log('adding this project', this.projects[this.firstIndex].index);
+        }
+
+        console.log('updating ', this.firstIndex, this.lastIndex);
+        if (direction==='none'){
+            this.activeProjects = [];
+            for (let i = this.firstIndex; i <=this.lastIndex; i++){
+                this.activeProjects.push(this.projects[i]);  
+            }
+        }
+    };
+
+    this.updateActiveProjects('none');
+
     let num = (Math.round(Math.random() + 1))*2;
     console.log('num is ', num);
     this.featuredWebsite = this.projects[num];

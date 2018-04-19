@@ -17,7 +17,7 @@
             <!-- <h1 clas="subtitle">Gallery</h1> -->
             <ul>
                 <!-- ng-if="project.type==='solo'"  -->
-                <li class="project"  ng-repeat="project in $ctrl.projects" ng-click="$ctrl.toggleProject(project)" ng-class='{"clickedProject":project.showMore===true}'>
+                <li class="project"  ng-repeat="project in $ctrl.activeProjects" ng-click="$ctrl.toggleProject(project)" ng-class='{"clickedProject":project.showMore===true}'>
                     <div class="project-title">
                         <h2>{{project.title}}</h2>
                     </div>
@@ -40,6 +40,10 @@
                     </div>
                 </li>
             </ul>
+            <div class="project-buttons">
+                <div id="left-button" ng-click="$ctrl.updateActiveProjects('down')"></div> 
+                <div id="right-button" ng-click="$ctrl.updateActiveProjects('up')"></div>
+            </div>
          </div> 
     </div>
 </section>
