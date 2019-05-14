@@ -143,6 +143,13 @@ td, th {
   color: #012a36;
   padding-top: 15vh; }
 
+.bio-section {
+  display: flex; }
+
+.bio-image {
+  width: 20rem;
+  height: 30rem; }
+
 #bio-block {
   background-color: #012a36;
   bottom: 12vw;

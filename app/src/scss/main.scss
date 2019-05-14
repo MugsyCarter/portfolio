@@ -186,6 +186,17 @@ td, th{
   padding-top: 15vh;
 }
 
+////bio section 
+
+.bio-section{
+  display: flex;
+}
+
+.bio-image{
+  width: 20rem;
+  height: 30rem;
+}
+
 #bio-block{
   background-color: $blue;
   bottom: 12vw;
